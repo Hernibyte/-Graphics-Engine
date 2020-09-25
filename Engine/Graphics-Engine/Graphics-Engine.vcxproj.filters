@@ -1,0 +1,31 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <Filter Include="Archivos de recursos">
+      <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
+      <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
+    </Filter>
+    <Filter Include="src">
+      <UniqueIdentifier>{567373f7-80e0-41b6-87f4-30cdc43f4836}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\declarations">
+      <UniqueIdentifier>{9d6fe0d6-05cc-4faf-b63e-b817204b6c2f}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\definitions">
+      <UniqueIdentifier>{208f5083-f382-4aa6-bc1d-0b957c69902c}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="src\main.cpp">
+      <Filter>src\definitions</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\includes.h">
+      <Filter>src\declarations</Filter>
+    </ClInclude>
+    <ClInclude Include="src\export.h">
+      <Filter>src\declarations</Filter>
+    </ClInclude>
+  </ItemGroup>
+</Project>
