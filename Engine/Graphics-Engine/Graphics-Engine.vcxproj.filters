@@ -14,9 +14,30 @@
     <Filter Include="src\definitions">
       <UniqueIdentifier>{208f5083-f382-4aa6-bc1d-0b957c69902c}</UniqueIdentifier>
     </Filter>
+    <Filter Include="res">
+      <UniqueIdentifier>{d993763d-6ef4-469b-8ec2-5cfb843af4f7}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="res\shaders">
+      <UniqueIdentifier>{9624e130-453a-44ed-a639-3f5905f8ee68}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\main.cpp">
+    <ClCompile Include="src\gamebase.cpp">
+      <Filter>src\definitions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\window.cpp">
+      <Filter>src\definitions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\renderer.cpp">
+      <Filter>src\definitions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entity.cpp">
+      <Filter>src\definitions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\shape.cpp">
+      <Filter>src\definitions</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entity2D.cpp">
       <Filter>src\definitions</Filter>
     </ClCompile>
   </ItemGroup>
@@ -27,5 +48,31 @@
     <ClInclude Include="src\export.h">
       <Filter>src\declarations</Filter>
     </ClInclude>
+    <ClInclude Include="src\gamebase.h">
+      <Filter>src\declarations</Filter>
+    </ClInclude>
+    <ClInclude Include="src\window.h">
+      <Filter>src\declarations</Filter>
+    </ClInclude>
+    <ClInclude Include="src\renderer.h">
+      <Filter>src\declarations</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entity.h">
+      <Filter>src\declarations</Filter>
+    </ClInclude>
+    <ClInclude Include="src\shape.h">
+      <Filter>src\declarations</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entity2D.h">
+      <Filter>src\declarations</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="res\shaders\shader-vs.shader">
+      <Filter>res\shaders</Filter>
+    </None>
+    <None Include="res\shaders\shader-fs.shader">
+      <Filter>res\shaders</Filter>
+    </None>
   </ItemGroup>
 </Project>
