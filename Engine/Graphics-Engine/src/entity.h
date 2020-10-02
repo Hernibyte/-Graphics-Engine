@@ -26,7 +26,6 @@ protected:
 	void UpdateMatrixModel();
 public:
 	Entity(renderer *_renderer);
-	~Entity();
 	Transform transform;
 	renderer* GetRenderer();
 	InternalData GetInternalData();

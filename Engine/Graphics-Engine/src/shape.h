@@ -16,8 +16,6 @@ public:
 	void setBufferData();
 	void setVertexsAttrib(unsigned int& shaderProgram);
 	void drawTr();
-	void setMaterial();
-	void SetVertexMaterial(glm::vec3* materials, float* VBA, int start, int offset, int repeticiones, int countElementsForRepe);
 };
 
 #endif // !SHAPE_H

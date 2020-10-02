@@ -8,6 +8,15 @@
 
 class GENGINE_API gamebase {
 private:
+	float transX;
+	float transY;
+	float transZ;
+	float rotateX;
+	float rotateY;
+	float rotateZ;
+	float scaleX;
+	float scaleY;
+	float scaleZ;
 	window* win;
 	renderer* render;
 	Shape* Tr;

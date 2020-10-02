@@ -86,19 +86,8 @@ int renderer::createShaderProgram(const char* vertexPath, const char* fragmentPa
 	return sProgram;
 }
 
-void renderer::setModel(unsigned int& _shaderProg, glm::mat4 model, glm::mat4 projection, glm::mat4 view) {
+void renderer::setModel(unsigned int& _shaderProg, glm::mat4 model) {
 	unsigned int modelLoc = glGetUniformLocation(_shaderProg, "model");
-
-	glUseProgram(getShaderProgram());
 
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 }
-
-glm::mat4 renderer::getView(){
-	return _MVP.view;
-}
-
-glm::mat4 renderer::getProj(){
-	return _MVP.projection;
-}
-

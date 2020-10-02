@@ -7,7 +7,6 @@
 class GENGINE_API Entity2D : public Entity {
 public:
 	Entity2D(renderer* _render);
-	~Entity2D();
 };
 
 #endif // !ENTITY2D_H

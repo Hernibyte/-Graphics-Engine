@@ -17,10 +17,6 @@ Entity::Entity(renderer *_renderer) {
 	SetScale(1, 1, 1);
 }
 
-Entity::~Entity() {
-
-}
-
 renderer* Entity::GetRenderer() {
 	return render;
 }
@@ -49,7 +45,7 @@ void Entity::SetScale(float x, float y, float z) {
 
 void Entity::SetRotationX(float x) {
 	transform.rotation[0] = x;
-	glm::vec3 axis;
+	glm::vec3 axis = { 0.0f, 0.0f, 1.0f };
 	axis[0] = 1.0f;
 	axis[1] = 0.0f;
 	axis[2] = 0.0f;
@@ -60,7 +56,7 @@ void Entity::SetRotationX(float x) {
 
 void Entity::SetRotationY(float y) {
 	transform.rotation[1] = y;
-	glm::vec3 axis;
+	glm::vec3 axis = { 0.0f, 0.0f, 1.0f };
 	axis[0] = 0.0f;
 	axis[1] = 1.0f;
 	axis[2] = 0.0f;
@@ -71,7 +67,7 @@ void Entity::SetRotationY(float y) {
 
 void Entity::SetRotationZ(float z) {
 	transform.rotation[2] = z;
-	glm::vec3 axis;
+	glm::vec3 axis = { 0.0f, 0.0f, 1.0f };
 	axis[0] = 0.0f;
 	axis[1] = 0.0f;
 	axis[2] = 1.0f;

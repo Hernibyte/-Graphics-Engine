@@ -45,12 +45,3 @@ void Shape::setVertexsAttrib(unsigned int& shaderProgram) {
 void Shape::drawTr() {
 	glDrawArrays(GL_TRIANGLES, 0, 6);
 }
-
-void Shape::setMaterial() {
-	//material->setColor(ColorTri, 4, 3);
-	//SetVertexMaterial(material->getColorRGB(), vertexBufferTri, 3, 4, 3, 4);
-}
-
-void Shape::SetVertexMaterial(glm::vec3* materials, float* VBA, int start, int offset, int repeticiones, int countElementsForRepe) {
-	
-}
