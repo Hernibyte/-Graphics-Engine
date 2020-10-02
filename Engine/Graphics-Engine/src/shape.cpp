@@ -21,11 +21,6 @@ Shape::Shape(renderer* _render) : Entity2D(_render) {
 	transform = new Entity(_render);
 }
 
-Shape::Shape(renderer* _render, Material* _material) : Entity2D(_render, _material) {
-	render = _render;
-	material = _material;
-}
-
 Shape::~Shape() {
 	if (transform != NULL) delete transform;
 }

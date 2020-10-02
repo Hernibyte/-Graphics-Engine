@@ -11,7 +11,6 @@ private:
 	Entity* transform;
 public:
 	Shape(renderer* _render);
-	Shape(renderer* _render, Material* _material);
 	~Shape();
 	void setVBO(unsigned int _VBO);
 	void setBufferData();
