@@ -32,19 +32,19 @@ int gamebase::startEngine() {
 	Tr->setVBO(render->getVBO());
 	Tr->setBufferData();
 	Tr->setVertexsAttrib(render->getShaderProgram());
-	//Tr->bindColor();
 	//shader
 	render->setShader();
 	//------
+	Tr->setMaterial();
 
 	glUseProgram(render->getShaderProgram());
 
 	while (!win->detecWindowShouldClose()) {
 
 		render->clearBackground();
-
-		glUseProgram(render->getShaderProgram());
-
+		
+		Tr->SetPosition(0.2f, 0.2f, 0.0f);
+		render->setModel(render->getShaderProgram(), Tr->getModel(), render->getProj(), render->getView());
 		Tr->drawTr();
 
 		win->swapBuffers();

@@ -35,6 +35,7 @@ public:
 	void SetRotationX(float x);
 	void SetRotationY(float y);
 	void SetRotationZ(float z);
+	glm::mat4 getModel();
 };
 
 #endif // !ENTITY

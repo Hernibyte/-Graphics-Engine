@@ -36,7 +36,7 @@ void renderer::clearBackground() {
 }
 
 void renderer::setShader() {
-	shaderProgram = createShaderProgram("res/shaders/shader-vs.shader","res/shaders/shader-fs.shader");
+	shaderProgram = createShaderProgram("../Graphics-Engine/res/shaders/shader-vs.shader","../Graphics-Engine/res/shaders/shader-fs.shader");
 }
 
 unsigned int renderer::compileShader(unsigned int type, const char* source) {
@@ -85,3 +85,20 @@ int renderer::createShaderProgram(const char* vertexPath, const char* fragmentPa
 
 	return sProgram;
 }
+
+void renderer::setModel(unsigned int& _shaderProg, glm::mat4 model, glm::mat4 projection, glm::mat4 view) {
+	unsigned int modelLoc = glGetUniformLocation(_shaderProg, "model");
+
+	glUseProgram(getShaderProgram());
+
+	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+}
+
+glm::mat4 renderer::getView(){
+	return _MVP.view;
+}
+
+glm::mat4 renderer::getProj(){
+	return _MVP.projection;
+}
+

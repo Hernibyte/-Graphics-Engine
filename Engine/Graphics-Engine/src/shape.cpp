@@ -12,17 +12,22 @@ float ColorTri[] {
 	1.0f, 0.0f, 0.0f
 };
 
+glm::vec3 changeColor = { 1.0f, 1.0f, 1.0f };
+
 int tam = 18;
 
 Shape::Shape(renderer* _render) : Entity2D(_render) {
 	render = _render;
-	_posAttrib = 0;
-	_colorAttrib = 1;
+	transform = new Entity(_render);
 }
 
 Shape::Shape(renderer* _render, Material* _material) : Entity2D(_render, _material) {
 	render = _render;
 	material = _material;
+}
+
+Shape::~Shape() {
+	if (transform != NULL) delete transform;
 }
 
 void Shape::setVBO(unsigned int _VBO) {
@@ -31,10 +36,6 @@ void Shape::setVBO(unsigned int _VBO) {
 
 void Shape::setBufferData() {
 	glBufferData(GL_ARRAY_BUFFER, tam * sizeof(float), vertexBufferTri, GL_STATIC_DRAW);
-}
-
-void Shape::bindColor() {
-	//material->setColor(ColorTri, 3, 3);
 }
 
 void Shape::setVertexsAttrib(unsigned int& shaderProgram) {
@@ -48,4 +49,13 @@ void Shape::setVertexsAttrib(unsigned int& shaderProgram) {
 
 void Shape::drawTr() {
 	glDrawArrays(GL_TRIANGLES, 0, 6);
+}
+
+void Shape::setMaterial() {
+	//material->setColor(ColorTri, 4, 3);
+	//SetVertexMaterial(material->getColorRGB(), vertexBufferTri, 3, 4, 3, 4);
+}
+
+void Shape::SetVertexMaterial(glm::vec3* materials, float* VBA, int start, int offset, int repeticiones, int countElementsForRepe) {
+	
 }

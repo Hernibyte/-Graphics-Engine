@@ -7,11 +7,17 @@
 #define TRPOS6 6
 #define TRPOS3 3
 
+struct matrixMVP {
+	glm::mat4 view;
+	glm::mat4 projection;
+};
+
 class GENGINE_API renderer {
 private:
-	unsigned int shaderProgram;
 	unsigned int VBO;
 	unsigned int VAO;
+	unsigned int shaderProgram;
+	matrixMVP _MVP;
 public:
 	unsigned int& getShaderProgram();
 	void createVBO();
@@ -24,6 +30,9 @@ public:
 	void setShader();
 	unsigned int compileShader(unsigned int type, const char* source);
 	int createShaderProgram(const char * vertexPath, const char * fragmentPath);
+	void setModel(unsigned int& _shaderProg, glm::mat4 model, glm::mat4 projection, glm::mat4 view);
+	glm::mat4 getView();
+	glm::mat4 getProj();
 };
 
 #endif // !RENDERER_H

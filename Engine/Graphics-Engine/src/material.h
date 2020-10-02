@@ -5,6 +5,7 @@
 
 class GENGINE_API Material {
 private:
+	glm::vec3* _colorRGB;
 	int j;
 public:
 	Material();

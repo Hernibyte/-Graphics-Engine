@@ -80,6 +80,10 @@ void Entity::SetRotationZ(float z) {
 	UpdateMatrixModel();
 }
 
+glm::mat4 Entity::getModel() {
+	return internalData.model;
+}
+
 //---------------------
 
 void Entity::UpdateMatrixModel() {
