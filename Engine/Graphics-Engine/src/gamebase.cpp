@@ -4,7 +4,7 @@ gamebase::gamebase() {
 	glfwInit();
 	transX = 0.0f;
 	transY = 0.0f;
-	transZ = 1.0f;
+	transZ = 0.0f;
 	rotateX = 0.0f;
 	rotateY = 0.0f;
 	rotateZ = 0.0f;
