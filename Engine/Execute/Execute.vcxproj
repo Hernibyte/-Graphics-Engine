@@ -125,11 +125,12 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Graphics-Engine\bin\Release\Win32;$(ProjectDir)lib\GLFW\lib-vc2017\;$(ProjectDir)lib\GLEW\lib\Release\Win32\</AdditionalLibraryDirectories>
+      <AdditionalLibraryDirectories>$(SolutionDir)Graphics-Engine\bin\Debug\Win32;$(ProjectDir)lib\GLFW\lib-vc2017\;$(ProjectDir)lib\GLEW\lib\Release\Win32\</AdditionalLibraryDirectories>
       <AdditionalDependencies>Graphics-Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y "$(SolutionDir)Graphics-Engine\bin\Release\Win32\Graphics-Engine.dll" "$(ProjectDir)bin\$(Configuration)\$(Platform)\"</Command>
+      <Command>
+      </Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">

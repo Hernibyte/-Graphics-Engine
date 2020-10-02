@@ -128,7 +128,7 @@
       <AdditionalDependencies>glfw3.lib;opengl32.lib;User32.lib;Gdi32.lib;Shell32.lib;glew32.lib</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
-      <Command>copy /Y "$(ProjectDir)lib\GLEW\dll\glew32.dll" "$(ProjectDir)bin\$(Configuration)\$(Platform)\"</Command>
+      <Command>"$(ProjectDir)tools\copy.bat" "$(SolutionDir)Execute" "$(ProjectDir)bin\Debug\Win32\Graphics-Engine.dll" "$(ProjectDir)bin\Debug\Win32\glew32.dll"</Command>
     </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
@@ -170,6 +170,9 @@
       <AdditionalLibraryDirectories>$(ProjectDir)lib\GLFW\lib-vc2017\;$(ProjectDir)lib\GLEW\lib\Release\Win32\</AdditionalLibraryDirectories>
       <AdditionalDependencies>glfw3.lib;opengl32.lib;User32.lib;Gdi32.lib;Shell32.lib;glew32.lib</AdditionalDependencies>
     </Link>
+    <PostBuildEvent>
+      <Command>"$(ProjectDir)tools\copy.bat" "$(SolutionDir)Execute" "$(ProjectDir)bin\Debug\Win32\Graphics-Engine.dll" "$(ProjectDir)bin\Debug\Win32\glew32.dll"</Command>
+    </PostBuildEvent>
   </ItemDefinitionGroup>
   <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
     <ClCompile>
