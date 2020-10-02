@@ -10,9 +10,16 @@
 class GENGINE_API renderer {
 private:
 	unsigned int shaderProgram;
+	unsigned int VBO;
+	unsigned int VAO;
 public:
 	unsigned int& getShaderProgram();
-	void bindVertexBuffer(unsigned int VBO);
+	void createVBO();
+	void createVAO();
+	void bindVBO(unsigned int _VBO);
+	void bindVAO(unsigned int _VAO);
+	unsigned int getVBO();
+	unsigned int getVAO();
 	void clearBackground();
 	void setShader();
 	unsigned int compileShader(unsigned int type, const char* source);

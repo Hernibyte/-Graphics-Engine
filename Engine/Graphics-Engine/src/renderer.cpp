@@ -4,13 +4,30 @@ unsigned int& renderer::getShaderProgram() {
 	return shaderProgram;
 }
 
-void renderer::bindVertexBuffer(unsigned int VBO) {
+void renderer::createVBO() {
 	glGenBuffers(1, &VBO);
+}
+
+void renderer::createVAO() {
+	glGenVertexArrays(1, &VAO);
+}
+
+void renderer::bindVBO(unsigned int _VBO) {
+	VBO = _VBO;
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)0);
-	glEnableVertexAttribArray(0);
-	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
-	glEnableVertexAttribArray(1);
+}
+
+void renderer::bindVAO(unsigned int _VAO) {
+	VAO = _VAO;
+	glBindVertexArray(VAO);
+}
+
+unsigned int renderer::getVBO() {
+	return VBO;
+}
+
+unsigned int renderer::getVAO() {
+	return VAO;
 }
 
 void renderer::clearBackground() {

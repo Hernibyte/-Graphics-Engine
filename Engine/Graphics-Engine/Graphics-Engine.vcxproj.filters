@@ -40,6 +40,9 @@
     <ClCompile Include="src\Entity2D.cpp">
       <Filter>src\definitions</Filter>
     </ClCompile>
+    <ClCompile Include="src\material.cpp">
+      <Filter>src\definitions</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\includes.h">
@@ -64,6 +67,9 @@
       <Filter>src\declarations</Filter>
     </ClInclude>
     <ClInclude Include="src\Entity2D.h">
+      <Filter>src\declarations</Filter>
+    </ClInclude>
+    <ClInclude Include="src\material.h">
       <Filter>src\declarations</Filter>
     </ClInclude>
   </ItemGroup>
