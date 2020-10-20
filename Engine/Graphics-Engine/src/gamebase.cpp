@@ -38,9 +38,9 @@ int gamebase::startEngine() {
 	//create VBO
 	render->createVBO();
 	//create Tr
-	Tr->setVBO(render->getVBO());
+	render->bindVBO(render->getVBO());
+	render->setVertexAttrib();
 	Tr->setBufferData();
-	Tr->setVertexsAttrib(render->getShaderProgram());
 	//shader
 	render->setShader();
 	//------
@@ -85,6 +85,7 @@ int gamebase::startEngine() {
 
 		//------
 		render->clearBackground();
+		//------
 		
 		Tr->SetPosition(transX, transY, transZ);
 		Tr->SetRotationX(rotateX);
@@ -94,8 +95,14 @@ int gamebase::startEngine() {
 
 		glUseProgram(render->getShaderProgram());
 
+		//Model
 		render->setModel(render->getShaderProgram(), Tr->getModel());
-		Tr->drawTr();
+		//view
+		render->setView(render->getShaderProgram(), render->getView());
+		//Proj
+		render->setProj(render->getShaderProgram(), render->getProj());
+		//------
+		render->drawTr();
 
 		win->swapBuffers();
 		win->pollEvents();

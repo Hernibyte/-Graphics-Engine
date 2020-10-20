@@ -1,5 +1,10 @@
 #include"renderer.h"
 
+renderer::renderer() {
+	unsigned int _posAttrib = 0;
+	unsigned int _colorAttrib = 1;
+}
+
 unsigned int& renderer::getShaderProgram() {
 	return shaderProgram;
 }
@@ -90,4 +95,61 @@ void renderer::setModel(unsigned int& _shaderProg, glm::mat4 model) {
 	unsigned int modelLoc = glGetUniformLocation(_shaderProg, "model");
 
 	glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
+}
+
+void renderer::setProj(unsigned int& _shaderProg, glm::mat4 projection) {
+	unsigned int projectionLoc = glGetUniformLocation(_shaderProg, "projection");
+
+	updateProj(projection);
+
+	glUniformMatrix4fv(projectionLoc, 1, GL_FALSE, glm::value_ptr(projection));
+}
+
+void renderer::updateProj(glm::mat4 projection) {
+	projection = glm::perspective(glm::radians(45.0f), 800.0f / 600.0f, 0.1f, 100.0f);
+}
+
+void renderer::setView(unsigned int& _shaderProg, glm::mat4 view) {
+	unsigned int viewLoc = glGetUniformLocation(_shaderProg, "view");
+
+	updateView(view);
+
+	glUniformMatrix4fv(viewLoc, 1, GL_FALSE, glm::value_ptr(view));
+}
+
+void renderer::updateView(glm::mat4 view) {
+	view = glm::lookAt(getCameraPos(), getCameraPos() + getCameraFront(), getCameraUp());
+}
+
+glm::mat4 renderer::getView() {
+	return _VP.view;
+}
+
+glm::mat4 renderer::getProj() {
+	return _VP.projection;
+}
+
+glm::vec3 renderer::getCameraPos() {
+	return _VP.cameraPos;
+}
+
+glm::vec3 renderer::getCameraFront() {
+	return _VP.cameraFront;
+}
+
+glm::vec3 renderer::getCameraUp() {
+	return _VP.cameraUp;
+}
+
+void renderer::setVertexAttrib() {
+	_posAttrib = glGetAttribLocation(shaderProgram, "aPos");
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), 0);
+	glEnableVertexAttribArray(0);
+	_colorAttrib = glGetAttribLocation(shaderProgram, "aColor");
+	glVertexAttribPointer(1, 3, GL_FLOAT, GL_FALSE, 6 * sizeof(float), (void*)(3 * sizeof(float)));
+	glEnableVertexAttribArray(1);
+}
+
+void renderer::drawTr(){
+	glDrawArrays(GL_TRIANGLES, 0, 6);
 }
