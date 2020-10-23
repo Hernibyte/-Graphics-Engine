@@ -46,6 +46,7 @@ public:
 	glm::vec3 getCameraFront();
 	glm::vec3 getCameraUp();
 	void setVertexAttrib();
+	void updateUnifornTexture();
 	void drawTr();
 };
 

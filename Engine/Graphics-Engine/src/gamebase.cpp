@@ -14,6 +14,7 @@ gamebase::gamebase() {
 	win = new window();
 	render = new renderer();
 	Tr = new Shape(render);
+	Sprite = new sprite(render);
 }
 
 gamebase::~gamebase() {
@@ -26,10 +27,16 @@ gamebase::~gamebase() {
 	if (Tr != NULL) {
 		delete Tr;
 	}
+	if (Sprite != NULL) {
+		delete Sprite;
+	}
 }
 
 int gamebase::startEngine() {
 	if (!glfwInit() || win == NULL) return -1;
+
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	win->createWindowValidate();
 	win->createContexCurrent();
@@ -43,8 +50,12 @@ int gamebase::startEngine() {
 	Tr->setBufferData();
 	//shader
 	render->setShader();
+	//sprite
+	Sprite->genTexture();
+	Sprite->bindTexture();
+	Sprite->setParametrer();
+	Sprite->setTexture("res/assets/tarta.png");
 	//------
-
 	glUseProgram(render->getShaderProgram());
 
 	while (!win->detecWindowShouldClose()) {
@@ -92,6 +103,9 @@ int gamebase::startEngine() {
 		Tr->SetRotationY(rotateY);
 		Tr->SetRotationZ(rotateZ);
 		Tr->SetScale(scaleX, scaleY, scaleZ);
+		
+		//------
+		Sprite->bindTexture();
 
 		glUseProgram(render->getShaderProgram());
 

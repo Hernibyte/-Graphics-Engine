@@ -5,6 +5,7 @@
 #include"window.h"
 #include"renderer.h"
 #include"shape.h"
+#include"sprite.h"
 
 class GENGINE_API gamebase {
 private:
@@ -20,6 +21,7 @@ private:
 	window* win;
 	renderer* render;
 	Shape* Tr;
+	sprite* Sprite;
 public:
 	gamebase();
 	~gamebase();
