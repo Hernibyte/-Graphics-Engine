@@ -8,12 +8,6 @@
     <Filter Include="src">
       <UniqueIdentifier>{567373f7-80e0-41b6-87f4-30cdc43f4836}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\declarations">
-      <UniqueIdentifier>{9d6fe0d6-05cc-4faf-b63e-b817204b6c2f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\definitions">
-      <UniqueIdentifier>{208f5083-f382-4aa6-bc1d-0b957c69902c}</UniqueIdentifier>
-    </Filter>
     <Filter Include="res">
       <UniqueIdentifier>{d993763d-6ef4-469b-8ec2-5cfb843af4f7}</UniqueIdentifier>
     </Filter>
@@ -23,75 +17,105 @@
     <Filter Include="src\stb_image">
       <UniqueIdentifier>{5e4b0989-ca2e-4d54-9f3f-7ad048a2567b}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\render">
+      <UniqueIdentifier>{8f2ff6bf-17d7-4495-8180-d85d51626d01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\gamebase">
+      <UniqueIdentifier>{554ebdac-4fd1-481d-bf2c-f5bb20bf3645}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\window">
+      <UniqueIdentifier>{dfa6c1d6-8626-428d-841f-1f9e0a3be89c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\entity">
+      <UniqueIdentifier>{1bd08f1a-fc96-4046-a2bf-b0cced0549e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\entity2D">
+      <UniqueIdentifier>{26d6cf91-07ae-4fc1-a6eb-38f455b4cb0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\tileMap">
+      <UniqueIdentifier>{2a22360d-61f6-4304-bb04-dc40df8c292b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\sprite">
+      <UniqueIdentifier>{d45a8175-87b3-4a1b-acdb-2ae289a7631e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\TextureImporter">
+      <UniqueIdentifier>{77038600-71db-44ac-8996-5303ecb106db}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\shape">
+      <UniqueIdentifier>{ba4c91d0-ac34-4752-b9c1-dc7466b3d1a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\tools">
+      <UniqueIdentifier>{9d6fe0d6-05cc-4faf-b63e-b817204b6c2f}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
-    <ClCompile Include="src\gamebase.cpp">
-      <Filter>src\definitions</Filter>
-    </ClCompile>
-    <ClCompile Include="src\window.cpp">
-      <Filter>src\definitions</Filter>
-    </ClCompile>
-    <ClCompile Include="src\renderer.cpp">
-      <Filter>src\definitions</Filter>
-    </ClCompile>
-    <ClCompile Include="src\entity.cpp">
-      <Filter>src\definitions</Filter>
-    </ClCompile>
-    <ClCompile Include="src\shape.cpp">
-      <Filter>src\definitions</Filter>
-    </ClCompile>
-    <ClCompile Include="src\Entity2D.cpp">
-      <Filter>src\definitions</Filter>
-    </ClCompile>
-    <ClCompile Include="src\sprite.cpp">
-      <Filter>src\definitions</Filter>
-    </ClCompile>
-    <ClCompile Include="src\textureImporter.cpp">
-      <Filter>src\definitions</Filter>
-    </ClCompile>
-    <ClCompile Include="src\tileMap.cpp">
-      <Filter>src\definitions</Filter>
-    </ClCompile>
     <ClCompile Include="src\stb_image.cpp">
       <Filter>src\stb_image</Filter>
+    </ClCompile>
+    <ClCompile Include="src\renderer.cpp">
+      <Filter>src\render</Filter>
+    </ClCompile>
+    <ClCompile Include="src\gamebase.cpp">
+      <Filter>src\gamebase</Filter>
+    </ClCompile>
+    <ClCompile Include="src\window.cpp">
+      <Filter>src\window</Filter>
+    </ClCompile>
+    <ClCompile Include="src\entity.cpp">
+      <Filter>src\entity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Entity2D.cpp">
+      <Filter>src\entity2D</Filter>
+    </ClCompile>
+    <ClCompile Include="src\tileMap.cpp">
+      <Filter>src\tileMap</Filter>
+    </ClCompile>
+    <ClCompile Include="src\sprite.cpp">
+      <Filter>src\sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="src\textureImporter.cpp">
+      <Filter>src\TextureImporter</Filter>
+    </ClCompile>
+    <ClCompile Include="src\shape.cpp">
+      <Filter>src\shape</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="src\includes.h">
-      <Filter>src\declarations</Filter>
+      <Filter>src\tools</Filter>
     </ClInclude>
     <ClInclude Include="src\export.h">
-      <Filter>src\declarations</Filter>
-    </ClInclude>
-    <ClInclude Include="src\gamebase.h">
-      <Filter>src\declarations</Filter>
-    </ClInclude>
-    <ClInclude Include="src\window.h">
-      <Filter>src\declarations</Filter>
-    </ClInclude>
-    <ClInclude Include="src\renderer.h">
-      <Filter>src\declarations</Filter>
-    </ClInclude>
-    <ClInclude Include="src\entity.h">
-      <Filter>src\declarations</Filter>
-    </ClInclude>
-    <ClInclude Include="src\shape.h">
-      <Filter>src\declarations</Filter>
-    </ClInclude>
-    <ClInclude Include="src\Entity2D.h">
-      <Filter>src\declarations</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sprite.h">
-      <Filter>src\declarations</Filter>
-    </ClInclude>
-    <ClInclude Include="src\textureImporter.h">
-      <Filter>src\declarations</Filter>
-    </ClInclude>
-    <ClInclude Include="src\tileMap.h">
-      <Filter>src\declarations</Filter>
+      <Filter>src\tools</Filter>
     </ClInclude>
     <ClInclude Include="src\stb_image.h">
       <Filter>src\stb_image</Filter>
+    </ClInclude>
+    <ClInclude Include="src\renderer.h">
+      <Filter>src\render</Filter>
+    </ClInclude>
+    <ClInclude Include="src\gamebase.h">
+      <Filter>src\gamebase</Filter>
+    </ClInclude>
+    <ClInclude Include="src\window.h">
+      <Filter>src\window</Filter>
+    </ClInclude>
+    <ClInclude Include="src\entity.h">
+      <Filter>src\entity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entity2D.h">
+      <Filter>src\entity2D</Filter>
+    </ClInclude>
+    <ClInclude Include="src\tileMap.h">
+      <Filter>src\tileMap</Filter>
+    </ClInclude>
+    <ClInclude Include="src\sprite.h">
+      <Filter>src\sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="src\textureImporter.h">
+      <Filter>src\TextureImporter</Filter>
+    </ClInclude>
+    <ClInclude Include="src\shape.h">
+      <Filter>src\shape</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>
