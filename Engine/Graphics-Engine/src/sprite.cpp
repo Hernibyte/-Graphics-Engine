@@ -1,30 +1,51 @@
 #include"sprite.h"
 
-sprite::sprite(renderer* _render) : Entity2D(_render) {
+float vertexBufferTriSprite[] = {
+	-0.5f, -0.5f, 0.0f,   1.0f, 1.0f, 1.0f,   0.0f, 0.0f,
+	 0.5f, -0.5f, 0.0f,   1.0f, 1.0f, 1.0f,   1.0f, 0.0f,
+	 0.0f,  0.5f, 0.0f,   1.0f, 1.0f, 1.0f,   0.5f, 1.0f
+}; 
+
+unsigned int triIndicesSprite[] = {
+	0, 1, 2
+};
+
+float vertexBufferQuadSprite[] = {
+	-0.5f,  0.5f, 0.0f,		1.0f, 0.0f, 0.0f,	1.0f, 1.0f,
+	 0.5f,  0.5f, 0.0f,		0.0f, 1.0f, 0.0f,	0.0f, 1.0f,
+	 0.5f, -0.5f, 0.0f,		0.0f, 0.0f, 1.0f,	0.0f, 0.0f,
+
+	 0.5f, -0.5f, 0.0f,		0.0f, 0.0f, 1.0f,	0.0f, 0.0f,
+	-0.5f, -0.5f, 0.0f,		1.0f, 1.0f, 1.0f,	1.0f, 0.0f,
+	-0.5f,  0.5f, 0.0f,		1.0f, 0.0f, 0.0f,	1.0f, 1.0f
+};
+/*
+float vertexBufferQuad[] = {
+	 0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 1.0f,   0.0f, 0.0f,
+	 0.5f, -0.5f, 0.0f,   1.0f, 1.0f, 1.0f,   0.0f, 0.0f,
+	-0.5f, -0.5f, 0.0f,   1.0f, 1.0f, 1.0f,   1.0f, 0.0f,
+	-0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 1.0f,   1.0f, 1.0f
+};*/
+
+unsigned int quadIndicesSprite[] = {  // note that we start from 0!
+	0, 1, 3,   // first triangle
+	1, 2, 3    // second triangle
+};
+
+sprite::sprite(renderer* _render, int _type) : Entity2D(_render) {
 	render = _render;
+	type = _type;
+	tam = 48;
 }
 
 sprite::~sprite() {
-	glDeleteTextures(1, &texture);
+	//---
 }
 
-void sprite::genTexture(){
-	stbi_set_flip_vertically_on_load(1);
-	glGenTextures(1, &texture);
-	glActiveTexture(GL_TEXTURE0);
-}
-
-void sprite::bindTexture(){
-	glBindTexture(GL_TEXTURE_2D, texture);
-}
-
-void sprite::setParametrer(){
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_CLAMP_TO_EDGE);
-	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_CLAMP_TO_EDGE);
-}
-
-void sprite::setTexture(const char* filePath){
+void sprite::loadTexture(const char* filePath){
 	Texture.loadTexture(filePath, data, width, height, nrChannels);
+}
+
+void sprite::setBufferData() {
+	render->setBufferData(tam, vertexBufferQuadSprite);
 }

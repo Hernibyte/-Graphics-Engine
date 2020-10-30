@@ -2,6 +2,7 @@
 #define RENDERER_H
 
 #include"includes.h"
+#include "stb_image.h"
 
 struct matrixVP {
 	glm::mat4 view;
@@ -17,22 +18,29 @@ struct matrixVP {
 class GENGINE_API renderer {
 private:
 	unsigned int VBO;
-	unsigned int VAO;
+	unsigned int EBO;
 	unsigned int shaderProgram;
 	unsigned int _posAttrib;
 	unsigned int _colorAttrib;
 	matrixVP _VP;
+	unsigned int texture;
 public:
 	renderer();
+	~renderer();
 	unsigned int& getShaderProgram();
 	void createVBO();
-	void createVAO();
+	void createEBO();
 	void bindVBO(unsigned int _VBO);
-	void bindVAO(unsigned int _VAO);
+	void bindEBO(unsigned int _EBO);
 	unsigned int getVBO();
-	unsigned int getVAO();
+	unsigned int getEBO();
+	void setBufferData(int tam, float* verterBuffer);
 	void clearBackground();
 	void setShader();
+	//---------------
+	void generateTexture();
+	void setParameterTexture();
+	//---------------
 	unsigned int compileShader(unsigned int type, const char* source);
 	int createShaderProgram(const char * vertexPath, const char * fragmentPath);
 	void setModel(unsigned int& _shaderProg, glm::mat4 model);

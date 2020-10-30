@@ -32,9 +32,6 @@
     <Filter Include="src\entity2D">
       <UniqueIdentifier>{26d6cf91-07ae-4fc1-a6eb-38f455b4cb0c}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\tileMap">
-      <UniqueIdentifier>{2a22360d-61f6-4304-bb04-dc40df8c292b}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\sprite">
       <UniqueIdentifier>{d45a8175-87b3-4a1b-acdb-2ae289a7631e}</UniqueIdentifier>
     </Filter>
@@ -66,9 +63,6 @@
     </ClCompile>
     <ClCompile Include="src\Entity2D.cpp">
       <Filter>src\entity2D</Filter>
-    </ClCompile>
-    <ClCompile Include="src\tileMap.cpp">
-      <Filter>src\tileMap</Filter>
     </ClCompile>
     <ClCompile Include="src\sprite.cpp">
       <Filter>src\sprite</Filter>
@@ -104,9 +98,6 @@
     </ClInclude>
     <ClInclude Include="src\Entity2D.h">
       <Filter>src\entity2D</Filter>
-    </ClInclude>
-    <ClInclude Include="src\tileMap.h">
-      <Filter>src\tileMap</Filter>
     </ClInclude>
     <ClInclude Include="src\sprite.h">
       <Filter>src\sprite</Filter>

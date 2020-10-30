@@ -13,8 +13,8 @@ gamebase::gamebase() {
 	scaleZ = 1.0f;
 	win = new window();
 	render = new renderer();
-	Tr = new Shape(render);
-	Sprite = new sprite(render);
+	Tr = new Shape(render, GL_TRIANGLES);
+	Sprite = new sprite(render, GL_QUADS);
 }
 
 gamebase::~gamebase() {
@@ -35,12 +35,12 @@ gamebase::~gamebase() {
 int gamebase::startEngine() {
 	if (!glfwInit() || win == NULL) return -1;
 
-	glEnable(GL_BLEND);
-	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
-
 	win->createWindowValidate();
 	win->createContexCurrent();
 	win->initGLEW();
+
+	glEnable(GL_BLEND);
+	glBlendFunc(GL_SRC_ALPHA, GL_ONE_MINUS_SRC_ALPHA);
 
 	//create VBO
 	render->createVBO();
@@ -48,13 +48,14 @@ int gamebase::startEngine() {
 	render->bindVBO(render->getVBO());
 	render->setVertexAttrib();
 	Tr->setBufferData();
+	//Sprite->setBufferData();
 	//shader
 	render->setShader();
-	//sprite
-	Sprite->genTexture();
-	Sprite->bindTexture();
-	Sprite->setParametrer();
-	Sprite->setTexture("res/assets/tarta.png");
+	//Set texture
+	render->generateTexture();
+	render->setParameterTexture();
+	//Sprite load texture
+	Sprite->loadTexture("res/assets/AprobamePorfa.jpg");
 	//------
 	glUseProgram(render->getShaderProgram());
 
@@ -105,7 +106,6 @@ int gamebase::startEngine() {
 		Tr->SetScale(scaleX, scaleY, scaleZ);
 		
 		//------
-		Sprite->bindTexture();
 
 		glUseProgram(render->getShaderProgram());
 

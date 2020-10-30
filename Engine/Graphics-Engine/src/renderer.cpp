@@ -5,6 +5,10 @@ renderer::renderer() {
 	unsigned int _colorAttrib = 1;
 }
 
+renderer::~renderer() {
+	glDeleteTextures(1, &texture);
+}
+
 unsigned int& renderer::getShaderProgram() {
 	return shaderProgram;
 }
@@ -13,8 +17,8 @@ void renderer::createVBO() {
 	glGenBuffers(1, &VBO);
 }
 
-void renderer::createVAO() {
-	glGenVertexArrays(1, &VAO);
+void renderer::createEBO() {
+	glGenVertexArrays(1, &EBO);
 }
 
 void renderer::bindVBO(unsigned int _VBO) {
@@ -22,17 +26,21 @@ void renderer::bindVBO(unsigned int _VBO) {
 	glBindBuffer(GL_ARRAY_BUFFER, VBO);
 }
 
-void renderer::bindVAO(unsigned int _VAO) {
-	VAO = _VAO;
-	glBindVertexArray(VAO);
+void renderer::bindEBO(unsigned int _EBO) {
+	EBO = _EBO;
+	glBindVertexArray(EBO);
 }
 
 unsigned int renderer::getVBO() {
 	return VBO;
 }
 
-unsigned int renderer::getVAO() {
-	return VAO;
+unsigned int renderer::getEBO() {
+	return EBO;
+}
+
+void renderer::setBufferData(int tam, float* vertexBuffer) {
+	glBufferData(GL_ARRAY_BUFFER, tam * sizeof(float), vertexBuffer, GL_DYNAMIC_DRAW);
 }
 
 void renderer::clearBackground() {
@@ -43,6 +51,21 @@ void renderer::clearBackground() {
 void renderer::setShader() {
 	shaderProgram = createShaderProgram("../Graphics-Engine/res/shaders/shader-vs.shader","../Graphics-Engine/res/shaders/shader-fs.shader");
 }
+
+//---------------------
+void renderer::generateTexture() {
+	stbi_set_flip_vertically_on_load(1);
+	glGenTextures(1, &texture);
+	glActiveTexture(GL_TEXTURE0);
+	glBindTexture(GL_TEXTURE_2D, texture);
+}
+void renderer::setParameterTexture() {
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_S, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_WRAP_T, GL_REPEAT);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_CLAMP_TO_EDGE);
+	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_CLAMP_TO_EDGE);
+}
+//---------------------
 
 unsigned int renderer::compileShader(unsigned int type, const char* source) {
 	unsigned int id = glCreateShader(type);

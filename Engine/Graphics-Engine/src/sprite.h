@@ -3,23 +3,22 @@
 
 #include"includes.h"
 #include"Entity2D.h"
-#include"textureImporter.h"
+#include "textureImporter.h"
 
 class GENGINE_API sprite : public Entity2D{
 private:
-	unsigned int texture;
 	unsigned char* data;
 	int width;
 	int height;
 	int nrChannels;
 	textureImporter Texture;
+	int tam;
+	int type;
 public:
-	sprite(renderer* _render);
+	sprite(renderer* _render, int _type);
 	~sprite();
-	void genTexture();
-	void bindTexture();
-	void setParametrer();
-	void setTexture(const char* filePath);
+	void loadTexture(const char* filePath);
+	void setBufferData();
 };
 
 #endif // !SPRITE_H

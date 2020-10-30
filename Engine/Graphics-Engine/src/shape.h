@@ -6,9 +6,10 @@
 
 class GENGINE_API Shape : public Entity2D{
 private:
-
+	int type;
+	int tam;
 public:
-	Shape(renderer* _render);
+	Shape(renderer* _render, int _type);
 	~Shape();
 	void setBufferData();
 };
