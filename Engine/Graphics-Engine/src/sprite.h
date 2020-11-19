@@ -17,7 +17,7 @@ private:
 public:
 	sprite(renderer* _render, int _type);
 	~sprite();
-	void loadTexture(const char* filePath);
+	void loadTexture(const char* filePath, int type);
 	void setBufferData();
 };
 

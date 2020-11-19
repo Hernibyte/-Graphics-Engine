@@ -17,7 +17,7 @@ private:
 public:
 	void loadTexture(const char* filePath,
 					 unsigned char* data, int width,
-					 int height, int nrChannels);
+					 int height, int nrChannels, int type);
 };
 
 #endif // !TEXTUREIPORTER_H

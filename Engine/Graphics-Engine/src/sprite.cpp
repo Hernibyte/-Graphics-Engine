@@ -42,8 +42,8 @@ sprite::~sprite() {
 	//---
 }
 
-void sprite::loadTexture(const char* filePath){
-	Texture.loadTexture(filePath, data, width, height, nrChannels);
+void sprite::loadTexture(const char* filePath, int type){
+	Texture.loadTexture(filePath, data, width, height, nrChannels, type);
 }
 
 void sprite::setBufferData() {

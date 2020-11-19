@@ -55,7 +55,7 @@ int gamebase::startEngine() {
 	render->generateTexture();
 	render->setParameterTexture();
 	//Sprite load texture
-	Sprite->loadTexture("res/assets/AprobamePorfa.jpg");
+	Sprite->loadTexture("res/assets/AprobamePorfa.jpg", GL_RGB);
 	//------
 	glUseProgram(render->getShaderProgram());
 
