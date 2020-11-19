@@ -17,7 +17,8 @@ public:
 	Time();
 	~Time();
 	void Reset();
-	void SetTimeScale();
+	void SetTimeScale(float t);
+	float GetTimeScale();
 	float GetSeconds();
 	void StartTime();
 	void Tick();
