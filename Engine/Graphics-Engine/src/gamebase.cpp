@@ -15,6 +15,7 @@ gamebase::gamebase() {
 	render = new renderer();
 	Tr = new Shape(render, GL_TRIANGLES);
 	Sprite = new sprite(render, GL_QUADS);
+	Sprite2 = new sprite(render, GL_QUADS);
 }
 
 gamebase::~gamebase() {
@@ -30,6 +31,7 @@ gamebase::~gamebase() {
 	if (Sprite != NULL) {
 		delete Sprite;
 	}
+	if (Sprite2 != NULL) delete Sprite2;
 }
 
 int gamebase::startEngine() {
@@ -47,15 +49,13 @@ int gamebase::startEngine() {
 	//create Tr
 	render->bindVBO(render->getVBO());
 	render->setVertexAttrib();
-	Tr->setBufferData();
-	//Sprite->setBufferData();
+	Sprite->setBufferData();
+	Sprite2->setBufferData();
 	//shader
 	render->setShader();
 	//Set texture
 	render->generateTexture();
 	render->setParameterTexture();
-	//Sprite load texture
-	Sprite->loadTexture("res/assets/AprobamePorfa.jpg", GL_RGB);
 	//------
 	glUseProgram(render->getShaderProgram());
 
@@ -94,28 +94,41 @@ int gamebase::startEngine() {
 			scaleY -= 0.001f;
 			scaleZ -= 0.001f;
 		}
-
 		//------
 		render->clearBackground();
-		//------
-		
-		Tr->SetPosition(transX, transY, transZ);
-		Tr->SetRotationX(rotateX);
-		Tr->SetRotationY(rotateY);
-		Tr->SetRotationZ(rotateZ);
-		Tr->SetScale(scaleX, scaleY, scaleZ);
-		
-		//------
 
-		glUseProgram(render->getShaderProgram());
-
-		//Model
-		render->setModel(render->getShaderProgram(), Tr->getModel());
 		//view
 		render->setView(render->getShaderProgram(), render->getView());
 		//Proj
 		render->setProj(render->getShaderProgram(), render->getProj());
+
 		//------
+		//Sprite
+		//Sprite load texture
+		Sprite->loadTexture("res/assets/AprobamePorfa.jpg", GL_RGB);
+		
+		Sprite->SetPosition(transX, transY, transZ);
+		Sprite->SetRotationX(rotateX);
+		Sprite->SetRotationY(rotateY);
+		Sprite->SetRotationZ(rotateZ);
+		Sprite->SetScale(scaleX, scaleY, scaleZ);
+		
+		//------
+
+		//Model
+		render->setModel(render->getShaderProgram(), Sprite->getModel());
+
+
+
+		render->drawTr();
+		//------
+
+		//Sprite2
+		//Sprite load texture
+		Sprite2->loadTexture("res/assets/dragon.png", GL_RGBA);
+
+		//------
+		render->setModel(render->getShaderProgram(), Sprite2->getModel());
 		render->drawTr();
 
 		win->swapBuffers();

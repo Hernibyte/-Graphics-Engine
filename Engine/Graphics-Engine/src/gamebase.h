@@ -22,6 +22,7 @@ private:
 	renderer* render;
 	Shape* Tr;
 	sprite* Sprite;
+	sprite* Sprite2;
 public:
 	gamebase();
 	~gamebase();
