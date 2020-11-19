@@ -16,14 +16,14 @@ private:
 public:
 	Time();
 	~Time();
-	void reset();
-	void setTimeScale();
-	float getSeconds();
-	void startTime();
-	void tick();
-	float deltaTime();
-	void calculateFps();
-	float getFps();
+	void Reset();
+	void SetTimeScale();
+	float GetSeconds();
+	void StartTime();
+	void Tick();
+	float DeltaTime();
+	void CalculateFps();
+	float GetFps();
 	void FPS();
 };
 

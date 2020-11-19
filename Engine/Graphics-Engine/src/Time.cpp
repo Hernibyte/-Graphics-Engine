@@ -1,33 +1,35 @@
 #include "Time.h"
 
 Time::Time() {
-
+	Reset();
+	timeScale = 1.0f;
+	deltaTime = 0;
 }
 Time::~Time() {
 
 }
-void Time::reset() {
+void Time::Reset() {
 
 }
-void Time::setTimeScale() {
+void Time::SetTimeScale() {
 
 }
-float Time::getSeconds() {
+float Time::GetSeconds() {
 
 }
-void Time::startTime() {
+void Time::StartTime() {
 
 }
-void Time::tick() {
+void Time::Tick() {
 
 }
-float Time::deltaTime() {
+float Time::DeltaTime() {
 
 }
-void Time::calculateFps() {
+void Time::CalculateFps() {
 
 }
-float Time::getFps() {
+float Time::GetFps() {
 
 }
 void Time::FPS() {
