@@ -19,6 +19,7 @@
     </ProjectConfiguration>
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="src\Animation.cpp" />
     <ClCompile Include="src\entity.cpp" />
     <ClCompile Include="src\Entity2D.cpp" />
     <ClCompile Include="src\gamebase.cpp" />
@@ -27,9 +28,11 @@
     <ClCompile Include="src\sprite.cpp" />
     <ClCompile Include="src\stb_image.cpp" />
     <ClCompile Include="src\textureImporter.cpp" />
+    <ClCompile Include="src\Time.cpp" />
     <ClCompile Include="src\window.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="src\Animation.h" />
     <ClInclude Include="src\entity.h" />
     <ClInclude Include="src\Entity2D.h" />
     <ClInclude Include="src\export.h" />
@@ -40,6 +43,7 @@
     <ClInclude Include="src\sprite.h" />
     <ClInclude Include="src\stb_image.h" />
     <ClInclude Include="src\textureImporter.h" />
+    <ClInclude Include="src\Time.h" />
     <ClInclude Include="src\window.h" />
   </ItemGroup>
   <ItemGroup>

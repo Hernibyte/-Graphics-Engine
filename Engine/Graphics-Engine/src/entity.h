@@ -19,8 +19,11 @@ struct GENGINE_API InternalData {
 	glm::mat4 scale;
 };
 
+const int QUAD_VERTEX_BUFFER_SIZE = 48;
+
 class GENGINE_API Entity {
 protected:
+	float vertexBuffer[QUAD_VERTEX_BUFFER_SIZE];
 	renderer* render;
 	InternalData internalData;
 	void UpdateMatrixModel();

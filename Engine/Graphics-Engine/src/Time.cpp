@@ -1,9 +1,11 @@
 #include "Time.h"
 
+float Time::elapsedTime = 0.0f;
+float Time::deltaTime = 0.0f;
+
 Time::Time() {
 	Reset();
 	timeScale = 1.0f;
-	deltaTime = 0;
 }
 Time::~Time() {
 

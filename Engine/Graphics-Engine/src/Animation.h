@@ -18,7 +18,7 @@ private:
 public:
 	Animation();
 	~Animation();
-	void Update(Time& time);
+	void Update();
 	void AddFrame(float frameX, float frameY, 
 		int spriteWidth, int spriteHeigth, 
 		int textureWidth, int tectureHeight,

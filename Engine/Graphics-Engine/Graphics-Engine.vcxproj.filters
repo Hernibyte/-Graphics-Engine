@@ -44,6 +44,12 @@
     <Filter Include="src\tools">
       <UniqueIdentifier>{9d6fe0d6-05cc-4faf-b63e-b817204b6c2f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\animation">
+      <UniqueIdentifier>{72074342-19aa-4bf5-8288-7a7ed787bbf6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Time">
+      <UniqueIdentifier>{bd680321-65e8-41f5-807f-f1f30f9dd036}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\stb_image.cpp">
@@ -72,6 +78,12 @@
     </ClCompile>
     <ClCompile Include="src\shape.cpp">
       <Filter>src\shape</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Animation.cpp">
+      <Filter>src\animation</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Time.cpp">
+      <Filter>src\Time</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -107,6 +119,12 @@
     </ClInclude>
     <ClInclude Include="src\shape.h">
       <Filter>src\shape</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Animation.h">
+      <Filter>src\animation</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Time.h">
+      <Filter>src\Time</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

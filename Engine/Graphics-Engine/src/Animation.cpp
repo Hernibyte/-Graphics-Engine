@@ -11,8 +11,8 @@ Animation::~Animation() {
 	if (totalFrames.size() > 0)
 		totalFrames.clear();
 }
-void Animation::Update(Time& time) {
-	currentTime += (time.DeltaTime());
+void Animation::Update() {
+	currentTime += (Time::DeltaTime());
 
 	while (currentTime >= length) {
 		currentTime -= length;
@@ -24,44 +24,36 @@ void Animation::Update(Time& time) {
 void Animation::AddFrame(float frameX, float frameY,
 	int spriteWidth, int spriteHeigth,
 	int textureWidth, int textureHeigth,
-	float timeToAnim, int _totalFrames, int countFramesForFilas) {
+	float timeToAnim, int _totalFrames, int framesPerRow) {
 	//---
 	length = timeToAnim;
 
-	std::cout << "total frames" << _totalFrames << std::endl;
-	_totalFrames = _totalFrames + countFramesForFilas;
 	float index_X = 0;
 	float index_Y = 0;
 	Frame frame;
-	std::cout << "total frames" << _totalFrames << std::endl;
-	for (int i = 0; i < _totalFrames; i++) {
-		//--------
-		frame.frameCoords[0].u = ((frameX + index_X) / textureWidth);
-		frame.frameCoords[0].v = ((spriteHeigth + index_Y) / textureHeigth);
-		//--------
-		frame.frameCoords[1].u = (((frameX + index_X) + spriteWidth) / textureWidth);
-		frame.frameCoords[1].v = ((spriteHeigth + index_Y) / textureHeigth);
-		//--------
-		frame.frameCoords[2].u = (((frameX + index_X) + spriteWidth) / textureWidth);
-		frame.frameCoords[2].v = ((frameY + index_Y) / textureHeigth);
 
-		//--------
-		frame.frameCoords[3].u = ((frameX + index_X) / textureWidth);
-		frame.frameCoords[3].v = ((frameY + index_Y) / textureHeigth);
-		//--------
-		totalFrames.push_back(frame);
-		index_X += spriteWidth;
-		if (i > 0)
+	int spriteRows = _totalFrames / framesPerRow;
+	int spriteColumns = framesPerRow;
+	for (int y = 0; y < spriteRows; y++)
+	{
+		frameY = spriteHeigth * y;
+
+		for (int x = 0; x < spriteColumns; x++)
 		{
-			if (i % countFramesForFilas == 0)
-			{
-				index_Y += spriteHeigth;
-				animations.push_back(totalFrames);
-				totalFrames.clear();
-			}
+			frameX = spriteWidth * x;
+
+			frame.frameCoords[0].u = (frameX / textureWidth);
+			frame.frameCoords[0].v = ((frameY + spriteHeigth) / textureHeigth);
+			frame.frameCoords[1].u = ((frameX + spriteWidth) / textureWidth);
+			frame.frameCoords[1].v = ((frameY + spriteHeigth) / textureHeigth);
+			frame.frameCoords[2].u = ((frameX + spriteWidth) / textureWidth);
+			frame.frameCoords[2].v = (frameY / textureHeigth);
+			frame.frameCoords[3].u = (frameX / textureWidth);
+			frame.frameCoords[3].v = (frameY / textureHeigth);
+
+			totalFrames.push_back(frame);
 		}
 	}
-	animations[0].resize(countFramesForFilas);
 }
 int Animation::GetCurrentFrame() {
 	return currentFrame;

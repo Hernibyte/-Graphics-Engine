@@ -60,22 +60,32 @@ int gamebase::startEngine() {
 	glUseProgram(render->getShaderProgram());
 
 	//------
+	//Set Sprite animation
+	Animation* animation = new Animation();
+	animation->AddFrame(0.0f, 0.0f, 640.0f, 360.0f, 1280.0f, 720.0f, 4.0f, 4, 2);
+	animation->AddAnimation();
+	animation->SetCurrentAnimation(0);
+	Sprite->setAnimation(animation);
+
+	//------
 	//Debug de bounds
-	std::cout << "Sprite bounds" << std::endl;
-	std::cout << "min.x: " << Sprite->getBounds().min.x << std::endl;
-	std::cout << "min.y: " << Sprite->getBounds().min.y << std::endl;
-	std::cout << "max.x: " << Sprite->getBounds().max.x << std::endl;
-	std::cout << "max.y: " << Sprite->getBounds().max.y << std::endl;
-	std::cout << "size.x: " << Sprite->getBounds().size.x << std::endl;
-	std::cout << "size.y: " << Sprite->getBounds().size.y << std::endl;
-	std::cout << std::endl;
-	std::cout << "Sprite2 bounds" << std::endl;
-	std::cout << "min.x: " << Sprite2->getBounds().min.x << std::endl;
-	std::cout << "min.y: " << Sprite2->getBounds().min.y << std::endl;
-	std::cout << "max.x: " << Sprite2->getBounds().max.x << std::endl;
-	std::cout << "max.y: " << Sprite2->getBounds().max.y << std::endl;
-	std::cout << "size.x: " << Sprite2->getBounds().size.x << std::endl;
-	std::cout << "size.y: " << Sprite2->getBounds().size.y << std::endl;
+	//std::cout << "Sprite bounds" << std::endl;
+	//std::cout << "min.x: " << Sprite->getBounds().min.x << std::endl;
+	//std::cout << "min.y: " << Sprite->getBounds().min.y << std::endl;
+	//std::cout << "max.x: " << Sprite->getBounds().max.x << std::endl;
+	//std::cout << "max.y: " << Sprite->getBounds().max.y << std::endl;
+	//std::cout << "size.x: " << Sprite->getBounds().size.x << std::endl;
+	//std::cout << "size.y: " << Sprite->getBounds().size.y << std::endl;
+	//std::cout << std::endl;
+	//std::cout << "Sprite2 bounds" << std::endl;
+	//std::cout << "min.x: " << Sprite2->getBounds().min.x << std::endl;
+	//std::cout << "min.y: " << Sprite2->getBounds().min.y << std::endl;
+	//std::cout << "max.x: " << Sprite2->getBounds().max.x << std::endl;
+	//std::cout << "max.y: " << Sprite2->getBounds().max.y << std::endl;
+	//std::cout << "size.x: " << Sprite2->getBounds().size.x << std::endl;
+	//std::cout << "size.y: " << Sprite2->getBounds().size.y << std::endl;
+
+	Time* time = new Time();
 
 	while (!win->detecWindowShouldClose()) {
 		// Input
@@ -147,28 +157,21 @@ int gamebase::startEngine() {
 		Sprite->SetRotationZ(rotateZ);
 		Sprite->SetScale(scaleX, scaleY, scaleZ);
 		
-		//------
-
 		//Model
 		render->setModel(render->getShaderProgram(), Sprite->getModel());
-
-
-
 		render->drawTr();
-		//------
 
+		//------
 		//Sprite2
 		//Sprite load texture
 		Sprite2->loadTexture("res/assets/dragon.png", GL_RGBA);
 
-		//------
+		//Model
 		render->setModel(render->getShaderProgram(), Sprite2->getModel());
 		render->drawTr();
 
 		//------
 		//Collision detection
-		std::cout << "min.x: " << Sprite->getBounds().min.x << std::endl;
-		std::cout << "min.y: " << Sprite->getBounds().min.y << std::endl;
 		if (Sprite->getBounds().min.x < Sprite2->getBounds().max.x
 			&&
 			Sprite->getBounds().max.x > Sprite2->getBounds().min.x
@@ -178,8 +181,11 @@ int gamebase::startEngine() {
 			Sprite->getBounds().max.y > Sprite2->getBounds().min.y
 			)
 			std::cout << "Colliding: YES" << std::endl;
-		else
-			std::cout << "Colliding: NO" << std::endl;
+		else std::cout << "Colliding: NO" << std::endl;
+
+		//------
+		//Time update
+		time->Tick();
 
 		win->swapBuffers();
 		win->pollEvents();
