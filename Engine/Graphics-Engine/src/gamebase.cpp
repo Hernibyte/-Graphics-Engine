@@ -59,6 +59,24 @@ int gamebase::startEngine() {
 	//------
 	glUseProgram(render->getShaderProgram());
 
+	//------
+	//Debug de bounds
+	std::cout << "Sprite bounds" << std::endl;
+	std::cout << "min.x: " << Sprite->getBounds().min.x << std::endl;
+	std::cout << "min.y: " << Sprite->getBounds().min.y << std::endl;
+	std::cout << "max.x: " << Sprite->getBounds().max.x << std::endl;
+	std::cout << "max.y: " << Sprite->getBounds().max.y << std::endl;
+	std::cout << "size.x: " << Sprite->getBounds().size.x << std::endl;
+	std::cout << "size.y: " << Sprite->getBounds().size.y << std::endl;
+	std::cout << std::endl;
+	std::cout << "Sprite2 bounds" << std::endl;
+	std::cout << "min.x: " << Sprite2->getBounds().min.x << std::endl;
+	std::cout << "min.y: " << Sprite2->getBounds().min.y << std::endl;
+	std::cout << "max.x: " << Sprite2->getBounds().max.x << std::endl;
+	std::cout << "max.y: " << Sprite2->getBounds().max.y << std::endl;
+	std::cout << "size.x: " << Sprite2->getBounds().size.x << std::endl;
+	std::cout << "size.y: " << Sprite2->getBounds().size.y << std::endl;
+
 	while (!win->detecWindowShouldClose()) {
 		// Input
 
@@ -66,10 +84,26 @@ int gamebase::startEngine() {
 		
 		//transform
 
-		if (glfwGetKey(win->getWin(), GLFW_KEY_W) == GLFW_PRESS) transY += 0.001f;
-		if (glfwGetKey(win->getWin(), GLFW_KEY_S) == GLFW_PRESS) transY -= 0.001f;
-		if (glfwGetKey(win->getWin(), GLFW_KEY_D) == GLFW_PRESS) transX += 0.001f;
-		if (glfwGetKey(win->getWin(), GLFW_KEY_A) == GLFW_PRESS) transX -= 0.001f;
+		if (glfwGetKey(win->getWin(), GLFW_KEY_W) == GLFW_PRESS)
+		{
+			transY += 0.01f;
+			Sprite->translateBounds(0.0f, 0.01f);
+		}
+		if (glfwGetKey(win->getWin(), GLFW_KEY_S) == GLFW_PRESS)
+		{
+			transY -= 0.01f;
+			Sprite->translateBounds(0.0f, -0.01f);
+		}
+		if (glfwGetKey(win->getWin(), GLFW_KEY_D) == GLFW_PRESS)
+		{
+			transX += 0.01f;
+			Sprite->translateBounds(0.01f, 0.0f);
+		}
+		if (glfwGetKey(win->getWin(), GLFW_KEY_A) == GLFW_PRESS)
+		{
+			transX -= 0.01f;
+			Sprite->translateBounds(-0.01f, 0.0f);
+		}
 		if (glfwGetKey(win->getWin(), GLFW_KEY_X) == GLFW_PRESS) transZ += 0.001f;
 		if (glfwGetKey(win->getWin(), GLFW_KEY_Z) == GLFW_PRESS) transZ -= 0.001f;
 
@@ -130,6 +164,22 @@ int gamebase::startEngine() {
 		//------
 		render->setModel(render->getShaderProgram(), Sprite2->getModel());
 		render->drawTr();
+
+		//------
+		//Collision detection
+		std::cout << "min.x: " << Sprite->getBounds().min.x << std::endl;
+		std::cout << "min.y: " << Sprite->getBounds().min.y << std::endl;
+		if (Sprite->getBounds().min.x < Sprite2->getBounds().max.x
+			&&
+			Sprite->getBounds().max.x > Sprite2->getBounds().min.x
+			&&
+			Sprite->getBounds().min.y < Sprite2->getBounds().max.y
+			&&
+			Sprite->getBounds().max.y > Sprite2->getBounds().min.y
+			)
+			std::cout << "Colliding: YES" << std::endl;
+		else
+			std::cout << "Colliding: NO" << std::endl;
 
 		win->swapBuffers();
 		win->pollEvents();
