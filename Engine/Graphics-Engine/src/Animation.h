@@ -22,7 +22,7 @@ public:
 	void AddFrame(float frameX, float frameY, 
 		int spriteWidth, int spriteHeigth, 
 		int textureWidth, int tectureHeight,
-		float timeToAnim, int totalFrames, int countFilas);
+		float timeToAnim, int totalFrames, int countFramesForFilas);
 	int GetCurrentFrame();
 	std::vector<Frame>& GetAnimation();
 	void SetCurrentAnimation(int _currentAnimation);
