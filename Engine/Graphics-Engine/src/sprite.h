@@ -6,7 +6,7 @@
 #include "textureImporter.h"
 #include "Animation.h"
 
-class GENGINE_API sprite : public Entity2D{
+class GENGINE_API Sprite : public Entity2D{
 private:
 	unsigned char* data;
 	int width;
@@ -17,8 +17,8 @@ private:
 	int type;
 	Animation* animation;
 public:
-	sprite(renderer* _render, int _type);
-	~sprite();
+	Sprite(Renderer* _render, int _type);
+	~Sprite();
 	void loadTexture(const char* filePath, int type);
 	void setBufferData();
 	void setAnimation(Animation* _animation);

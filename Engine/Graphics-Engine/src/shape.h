@@ -9,7 +9,7 @@ private:
 	int type;
 	int tam;
 public:
-	Shape(renderer* _render, int _type);
+	Shape(Renderer* _render, int _type);
 	~Shape();
 	void setBufferData();
 };

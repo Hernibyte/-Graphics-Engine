@@ -17,6 +17,6 @@ void textureImporter::loadTexture(const char* filePath, unsigned char* data, int
 	}
 	else
 		std::cout << "Failed to load texture" << std::endl;
-		
+	
 	stbi_image_free(data);
 }

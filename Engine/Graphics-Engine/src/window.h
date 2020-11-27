@@ -3,12 +3,12 @@
 
 #include"includes.h"
 
-class GENGINE_API window {
+class GENGINE_API Window {
 private:
 	int width;
 	int height;
 public:
-	window();
+	Window();
 	GLFWwindow* getWin();
 	void setWidth(int _width);
 	void setHeight(int _height);

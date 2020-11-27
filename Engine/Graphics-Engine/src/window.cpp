@@ -2,59 +2,59 @@
 
 GLFWwindow* win;
 
-window::window() {
+Window::Window() {
 	setWidth(1280);
 	setHeight(720);
 	win = glfwCreateWindow(width, height, "Unreal Engine 6", NULL, NULL);
 }
 
-GLFWwindow* window::getWin() {
+GLFWwindow* Window::getWin() {
 	return win;
 }
 
-void window::setWidth(int _width) {
+void Window::setWidth(int _width) {
 	width = _width;
 }
 
-void window::setHeight(int _height) {
+void Window::setHeight(int _height) {
 	height = _height;
 }
 
-int window::getWigth() {
+int Window::getWigth() {
 	return width;
 }
 
-int window::getHeight() {
+int Window::getHeight() {
 	return height;
 }
 
-int window::createWindowValidate() {
+int Window::createWindowValidate() {
 	if (!win) {
 		glfwTerminate();
 		return -1;
 	}
 }
 
-void window::createContexCurrent() {
+void Window::createContexCurrent() {
 	glfwMakeContextCurrent(win);
 }
 
-void window::initGLEW() {
+void Window::initGLEW() {
 	glewInit();
 }
 
-bool window::detecWindowShouldClose() {
+bool Window::detecWindowShouldClose() {
 	return glfwWindowShouldClose(win);
 }
 
-void window::swapBuffers() {
+void Window::swapBuffers() {
 	glfwSwapBuffers(win);
 }
 
-void window::pollEvents() {
+void Window::pollEvents() {
 	glfwPollEvents();
 }
 
-void window::glfwTermine() {
+void Window::glfwTermine() {
 	glfwTerminate();
 }

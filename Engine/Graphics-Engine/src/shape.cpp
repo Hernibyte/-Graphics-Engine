@@ -33,7 +33,7 @@ unsigned int triIndices[] = {
 };
 */
 
-Shape::Shape(renderer* _render, int _type) : Entity2D(_render) {
+Shape::Shape(Renderer* _render, int _type) : Entity2D(_render) {
 	render = _render;
 	type = _type;
 	tam = 48;

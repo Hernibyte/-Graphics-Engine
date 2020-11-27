@@ -1,6 +1,6 @@
 #include"entity.h"
 
-Entity::Entity(renderer *_renderer) {
+Entity::Entity(Renderer *_renderer) {
 	render = _renderer;
 
 	internalData.model = glm::mat4(1.0f);
@@ -17,7 +17,7 @@ Entity::Entity(renderer *_renderer) {
 	SetScale(1, 1, 1);
 }
 
-renderer* Entity::GetRenderer() {
+Renderer* Entity::GetRenderer() {
 	return render;
 }
 

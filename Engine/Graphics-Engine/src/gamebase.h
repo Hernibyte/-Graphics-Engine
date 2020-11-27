@@ -1,14 +1,14 @@
 #ifndef GAMEBASE_H
 #define GAMEBASE_H
 
-#include"includes.h"
-#include"window.h"
-#include"renderer.h"
-#include"shape.h"
-#include"sprite.h"
+#include "Includes.h"
+#include "Renderer.h"
+#include "Shape.h"
+#include "Sprite.h"
+#include "Window.h"
 
-class GENGINE_API gamebase {
-private:
+class GENGINE_API GameBase {
+protected:
 	float transX;
 	float transY;
 	float transZ;
@@ -18,15 +18,16 @@ private:
 	float scaleX;
 	float scaleY;
 	float scaleZ;
-	window* win;
-	renderer* render;
-	Shape* Tr;
-	sprite* Sprite;
-	sprite* Sprite2;
+
+	Window* window;
+	Renderer* renderer;
+	Time* time;
 public:
-	gamebase();
-	~gamebase();
-	int startEngine();
+	GameBase();
+	~GameBase();
+	virtual int initialize() = 0;
+	virtual void update() = 0;
+	virtual int terminate() = 0;
 };
 
 #endif // !GAMEBASE_H

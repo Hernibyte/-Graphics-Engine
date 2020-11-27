@@ -1,11 +1,11 @@
 #include"Entity2D.h"
 
-Entity2D::Entity2D(renderer* _render) : Entity(_render) {
+Entity2D::Entity2D(Renderer* _render) : Entity(_render) {
 	render = _render;
 	bounds.min = bounds.max = vec2(0.0f, 0.0f);
 }
 
-Entity2D::Entity2D(renderer* _render, vec2 _boundsMin, vec2 _boundsMax) : Entity(_render) {
+Entity2D::Entity2D(Renderer* _render, vec2 _boundsMin, vec2 _boundsMax) : Entity(_render) {
 	render = _render;
 
 	bounds.min = _boundsMin;

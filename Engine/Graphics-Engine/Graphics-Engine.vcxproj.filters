@@ -17,114 +17,114 @@
     <Filter Include="src\stb_image">
       <UniqueIdentifier>{5e4b0989-ca2e-4d54-9f3f-7ad048a2567b}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\render">
-      <UniqueIdentifier>{8f2ff6bf-17d7-4495-8180-d85d51626d01}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\gamebase">
-      <UniqueIdentifier>{554ebdac-4fd1-481d-bf2c-f5bb20bf3645}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\window">
-      <UniqueIdentifier>{dfa6c1d6-8626-428d-841f-1f9e0a3be89c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\entity">
-      <UniqueIdentifier>{1bd08f1a-fc96-4046-a2bf-b0cced0549e4}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\entity2D">
-      <UniqueIdentifier>{26d6cf91-07ae-4fc1-a6eb-38f455b4cb0c}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\sprite">
-      <UniqueIdentifier>{d45a8175-87b3-4a1b-acdb-2ae289a7631e}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\TextureImporter">
       <UniqueIdentifier>{77038600-71db-44ac-8996-5303ecb106db}</UniqueIdentifier>
     </Filter>
-    <Filter Include="src\shape">
-      <UniqueIdentifier>{ba4c91d0-ac34-4752-b9c1-dc7466b3d1a5}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\tools">
-      <UniqueIdentifier>{9d6fe0d6-05cc-4faf-b63e-b817204b6c2f}</UniqueIdentifier>
-    </Filter>
-    <Filter Include="src\animation">
-      <UniqueIdentifier>{72074342-19aa-4bf5-8288-7a7ed787bbf6}</UniqueIdentifier>
-    </Filter>
     <Filter Include="src\Time">
       <UniqueIdentifier>{bd680321-65e8-41f5-807f-f1f30f9dd036}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Animation">
+      <UniqueIdentifier>{72074342-19aa-4bf5-8288-7a7ed787bbf6}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Entity">
+      <UniqueIdentifier>{1bd08f1a-fc96-4046-a2bf-b0cced0549e4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Entity2D">
+      <UniqueIdentifier>{26d6cf91-07ae-4fc1-a6eb-38f455b4cb0c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\GameBase">
+      <UniqueIdentifier>{554ebdac-4fd1-481d-bf2c-f5bb20bf3645}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Renderer">
+      <UniqueIdentifier>{8f2ff6bf-17d7-4495-8180-d85d51626d01}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Shape">
+      <UniqueIdentifier>{ba4c91d0-ac34-4752-b9c1-dc7466b3d1a5}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Sprite">
+      <UniqueIdentifier>{d45a8175-87b3-4a1b-acdb-2ae289a7631e}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Window">
+      <UniqueIdentifier>{dfa6c1d6-8626-428d-841f-1f9e0a3be89c}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\Tools">
+      <UniqueIdentifier>{9d6fe0d6-05cc-4faf-b63e-b817204b6c2f}</UniqueIdentifier>
     </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\stb_image.cpp">
       <Filter>src\stb_image</Filter>
     </ClCompile>
-    <ClCompile Include="src\renderer.cpp">
-      <Filter>src\render</Filter>
-    </ClCompile>
-    <ClCompile Include="src\gamebase.cpp">
-      <Filter>src\gamebase</Filter>
-    </ClCompile>
-    <ClCompile Include="src\window.cpp">
-      <Filter>src\window</Filter>
-    </ClCompile>
-    <ClCompile Include="src\entity.cpp">
-      <Filter>src\entity</Filter>
-    </ClCompile>
     <ClCompile Include="src\Entity2D.cpp">
-      <Filter>src\entity2D</Filter>
-    </ClCompile>
-    <ClCompile Include="src\sprite.cpp">
-      <Filter>src\sprite</Filter>
-    </ClCompile>
-    <ClCompile Include="src\textureImporter.cpp">
-      <Filter>src\TextureImporter</Filter>
-    </ClCompile>
-    <ClCompile Include="src\shape.cpp">
-      <Filter>src\shape</Filter>
+      <Filter>src\Entity2D</Filter>
     </ClCompile>
     <ClCompile Include="src\Animation.cpp">
-      <Filter>src\animation</Filter>
+      <Filter>src\Animation</Filter>
     </ClCompile>
     <ClCompile Include="src\Time.cpp">
       <Filter>src\Time</Filter>
     </ClCompile>
+    <ClCompile Include="src\Entity.cpp">
+      <Filter>src\Entity</Filter>
+    </ClCompile>
+    <ClCompile Include="src\GameBase.cpp">
+      <Filter>src\GameBase</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Renderer.cpp">
+      <Filter>src\Renderer</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Shape.cpp">
+      <Filter>src\Shape</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Sprite.cpp">
+      <Filter>src\Sprite</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TextureImporter.cpp">
+      <Filter>src\TextureImporter</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Window.cpp">
+      <Filter>src\Window</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="src\includes.h">
-      <Filter>src\tools</Filter>
-    </ClInclude>
-    <ClInclude Include="src\export.h">
-      <Filter>src\tools</Filter>
-    </ClInclude>
     <ClInclude Include="src\stb_image.h">
       <Filter>src\stb_image</Filter>
     </ClInclude>
-    <ClInclude Include="src\renderer.h">
-      <Filter>src\render</Filter>
-    </ClInclude>
-    <ClInclude Include="src\gamebase.h">
-      <Filter>src\gamebase</Filter>
-    </ClInclude>
-    <ClInclude Include="src\window.h">
-      <Filter>src\window</Filter>
-    </ClInclude>
-    <ClInclude Include="src\entity.h">
-      <Filter>src\entity</Filter>
-    </ClInclude>
     <ClInclude Include="src\Entity2D.h">
-      <Filter>src\entity2D</Filter>
-    </ClInclude>
-    <ClInclude Include="src\sprite.h">
-      <Filter>src\sprite</Filter>
-    </ClInclude>
-    <ClInclude Include="src\textureImporter.h">
-      <Filter>src\TextureImporter</Filter>
-    </ClInclude>
-    <ClInclude Include="src\shape.h">
-      <Filter>src\shape</Filter>
+      <Filter>src\Entity2D</Filter>
     </ClInclude>
     <ClInclude Include="src\Animation.h">
-      <Filter>src\animation</Filter>
+      <Filter>src\Animation</Filter>
     </ClInclude>
     <ClInclude Include="src\Time.h">
       <Filter>src\Time</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Entity.h">
+      <Filter>src\Entity</Filter>
+    </ClInclude>
+    <ClInclude Include="src\GameBase.h">
+      <Filter>src\GameBase</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Renderer.h">
+      <Filter>src\Renderer</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Shape.h">
+      <Filter>src\Shape</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Sprite.h">
+      <Filter>src\Sprite</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TextureImporter.h">
+      <Filter>src\TextureImporter</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Window.h">
+      <Filter>src\Window</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Export.h">
+      <Filter>src\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Includes.h">
+      <Filter>src\Tools</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

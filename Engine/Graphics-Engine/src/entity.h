@@ -24,13 +24,13 @@ const int QUAD_VERTEX_BUFFER_SIZE = 48;
 class GENGINE_API Entity {
 protected:
 	float vertexBuffer[QUAD_VERTEX_BUFFER_SIZE];
-	renderer* render;
+	Renderer* render;
 	InternalData internalData;
 	void UpdateMatrixModel();
 public:
-	Entity(renderer *_renderer);
+	Entity(Renderer *_renderer);
 	Transform transform;
-	renderer* GetRenderer();
+	Renderer* GetRenderer();
 	InternalData GetInternalData();
 	void SetPosition(float x, float y, float z);
 	void SetScale(float x, float y, float z);

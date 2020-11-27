@@ -15,7 +15,7 @@ struct matrixVP {
 #define TRPOS6 6
 #define TRPOS3 3
 
-class GENGINE_API renderer {
+class GENGINE_API Renderer {
 private:
 	unsigned int VBO;
 	unsigned int EBO;
@@ -25,8 +25,8 @@ private:
 	matrixVP _VP;
 	unsigned int texture;
 public:
-	renderer();
-	~renderer();
+	Renderer();
+	~Renderer();
 	unsigned int& getShaderProgram();
 	void createVBO();
 	void createEBO();

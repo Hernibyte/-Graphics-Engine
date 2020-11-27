@@ -125,8 +125,8 @@
     <Link>
       <SubSystem>Console</SubSystem>
       <GenerateDebugInformation>true</GenerateDebugInformation>
-      <AdditionalLibraryDirectories>$(SolutionDir)Graphics-Engine\bin\Debug\Win32;$(ProjectDir)lib\GLFW\lib-vc2017\;$(ProjectDir)lib\GLEW\lib\Release\Win32\</AdditionalLibraryDirectories>
-      <AdditionalDependencies>Graphics-Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
+      <AdditionalLibraryDirectories>$(SolutionDir)Graphics-Engine\bin\Debug\Win32;$(SolutionDir)Graphics-Engine\lib\GLFW\lib-vc2017\;$(SolutionDir)Graphics-Engine\lib\GLEW\lib\Release\Win32\</AdditionalLibraryDirectories>
+      <AdditionalDependencies>glew32.lib;glfw3.lib;opengl32.lib;Graphics-Engine.lib;%(AdditionalDependencies)</AdditionalDependencies>
     </Link>
     <PostBuildEvent>
       <Command>
@@ -168,7 +168,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
-    <ClCompile Include="Execute.cpp" />
+    <ClCompile Include="src\Execute.cpp" />
+    <ClCompile Include="src\Game.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="src\Game.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

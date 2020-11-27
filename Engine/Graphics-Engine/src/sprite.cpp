@@ -44,7 +44,7 @@ unsigned int quadIndicesSprite[] = {  // note that we start from 0!
 	1, 2, 3    // second triangle
 };
 
-sprite::sprite(renderer* _render, int _type) : Entity2D(_render, _boundsMin, _boundsMax) {
+Sprite::Sprite(Renderer* _render, int _type) : Entity2D(_render, _boundsMin, _boundsMax) {
 	render = _render;
 	type = _type;
 	tam = QUAD_VERTEX_BUFFER_SIZE;
@@ -56,11 +56,11 @@ sprite::sprite(renderer* _render, int _type) : Entity2D(_render, _boundsMin, _bo
 	}
 }
 
-sprite::~sprite() {
+Sprite::~Sprite() {
 	//---
 }
 
-void sprite::loadTexture(const char* filePath, int type) {
+void Sprite::loadTexture(const char* filePath, int type) {
 	Texture.loadTexture(filePath, data, width, height, nrChannels, type);
 
 	//std::cout << filePath << ": " << &vertexBuffer << std::endl;
@@ -86,16 +86,16 @@ void sprite::loadTexture(const char* filePath, int type) {
 	}
 }
 
-void sprite::setBufferData() {
+void Sprite::setBufferData() {
 	render->setBufferData(tam, vertexBuffer);
 }
 
-void sprite::setAnimation(Animation* _animation)
+void Sprite::setAnimation(Animation* _animation)
 {
 	animation = _animation;
 }
 
-Animation* sprite::getAnimation()
+Animation* Sprite::getAnimation()
 {
 	return animation;
 }

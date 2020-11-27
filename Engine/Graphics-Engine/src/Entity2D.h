@@ -15,8 +15,8 @@ struct Bounds
 class GENGINE_API Entity2D : public Entity {
 	Bounds bounds;
 public:
-	Entity2D(renderer* _render);
-	Entity2D(renderer* _render, vec2 _boundsMin, vec2 _boundsMax);
+	Entity2D(Renderer* _render);
+	Entity2D(Renderer* _render, vec2 _boundsMin, vec2 _boundsMax);
 	void setBounds(Bounds _bounds);
 	Bounds getBounds();
 	void translateBounds(float transX, float transY);
