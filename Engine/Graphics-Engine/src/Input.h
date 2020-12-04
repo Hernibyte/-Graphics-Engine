@@ -5,13 +5,13 @@
 
 enum PrintableKey
 {
-	SPACE,
+	SPACE = 32,
 	APOSTROPHE,
-	COMMA,
+	COMMA = 44,
 	MINUS,
 	PERIOD,
 	SLASH,
-	ZERO,
+	ZERO = 48,
 	ONE,
 	TWO,
 	THREE,
@@ -23,7 +23,7 @@ enum PrintableKey
 	NINE,
 	SEMICOLON,
 	EQUAL,
-	A,
+	A = 65,
 	B,
 	C,
 	D,
