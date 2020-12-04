@@ -47,6 +47,10 @@ bool Window::detecWindowShouldClose() {
 	return glfwWindowShouldClose(win);
 }
 
+void Window::setWindowShouldClose(bool state) {
+	glfwSetWindowShouldClose(win, state);
+}
+
 void Window::swapBuffers() {
 	glfwSwapBuffers(win);
 }
@@ -55,6 +59,6 @@ void Window::pollEvents() {
 	glfwPollEvents();
 }
 
-void Window::glfwTermine() {
+void Window::glfwTerminate() {
 	glfwTerminate();
 }

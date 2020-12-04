@@ -50,6 +50,9 @@
     <Filter Include="src\Tools">
       <UniqueIdentifier>{9d6fe0d6-05cc-4faf-b63e-b817204b6c2f}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Input">
+      <UniqueIdentifier>{9c445a2a-276d-4360-9d28-317b249bc827}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\stb_image.cpp">
@@ -84,6 +87,9 @@
     </ClCompile>
     <ClCompile Include="src\Window.cpp">
       <Filter>src\Window</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Input.cpp">
+      <Filter>src\Input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -125,6 +131,9 @@
     </ClInclude>
     <ClInclude Include="src\Includes.h">
       <Filter>src\Tools</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Input.h">
+      <Filter>src\Input</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

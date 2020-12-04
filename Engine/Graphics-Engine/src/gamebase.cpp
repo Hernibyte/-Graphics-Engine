@@ -13,6 +13,7 @@ GameBase::GameBase() {
 	scaleZ = 1.0f;
 
 	window = new Window();
+	input = new Input(window);
 	renderer = new Renderer();
 	time = new Time();
 
@@ -41,9 +42,10 @@ GameBase::GameBase() {
 
 GameBase::~GameBase() {
 	glDeleteProgram(renderer->getShaderProgram());
-	window->glfwTermine();
+	window->glfwTerminate();
 
 	if (window) delete window;
+	if (input) delete input;
 	if (renderer) delete renderer;
 	if (time) delete time;
 }

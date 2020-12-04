@@ -6,6 +6,7 @@
 #include "Shape.h"
 #include "Sprite.h"
 #include "Window.h"
+#include "Input.h"
 
 class GENGINE_API GameBase {
 protected:
@@ -20,6 +21,7 @@ protected:
 	float scaleZ;
 
 	Window* window;
+	Input* input;
 	Renderer* renderer;
 	Time* time;
 public:

@@ -1,7 +1,6 @@
 #ifndef WINDOW_H
-#define WINDOW_h
-
-#include"includes.h"
+#define WINDOW_H
+#include "includes.h"
 
 class GENGINE_API Window {
 private:
@@ -18,9 +17,10 @@ public:
 	void createContexCurrent();
 	void initGLEW();
 	bool detecWindowShouldClose();
+	void setWindowShouldClose(bool state);
 	void swapBuffers();
 	void pollEvents();
-	void glfwTermine();
+	void glfwTerminate();
 };
 
 #endif // !WINDOW_H

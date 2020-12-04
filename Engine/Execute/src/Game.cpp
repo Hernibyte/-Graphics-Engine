@@ -4,15 +4,13 @@ Game::Game() {}
 
 Game::~Game() {}
 
-Shape* tri;
 Sprite* sprite;
 Sprite* sprite2;
 
 int Game::initialize()
 {
-	tri = new Shape(renderer, GL_TRIANGLES);
-	sprite = new Sprite(renderer, GL_QUADS);
-	sprite2 = new Sprite(renderer, GL_QUADS);
+	sprite = new Sprite(renderer);
+	sprite2 = new Sprite(renderer);
 
 	sprite->setBufferData();
 	sprite2->setBufferData();
@@ -32,47 +30,64 @@ void Game::update()
 {
 	while (!window->detecWindowShouldClose()) {
 		//input
-		if (glfwGetKey(window->getWin(), GLFW_KEY_ESCAPE) == GLFW_PRESS) glfwSetWindowShouldClose(window->getWin(), true);
+		//if (glfwGetKey(window->getWin(), GLFW_KEY_ESCAPE) == GLFW_PRESS) glfwSetWindowShouldClose(window->getWin(), true);
+		if (input->getKeyPress(FunctionKey::ESCAPE)) window->setWindowShouldClose(true);
 
 		//transform
-		if (glfwGetKey(window->getWin(), GLFW_KEY_W) == GLFW_PRESS)
+		//if (glfwGetKey(window->getWin(), GLFW_KEY_W) == GLFW_PRESS)
+		if (input->getKeyPress(PrintableKey::W))
 		{
 			transY += 0.01f;
 			sprite->translateBounds(0.0f, 0.01f);
 		}
-		if (glfwGetKey(window->getWin(), GLFW_KEY_S) == GLFW_PRESS)
+		//if (glfwGetKey(window->getWin(), GLFW_KEY_S) == GLFW_PRESS)
+		if (input->getKeyPress(PrintableKey::S))
 		{
 			transY -= 0.01f;
 			sprite->translateBounds(0.0f, -0.01f);
 		}
-		if (glfwGetKey(window->getWin(), GLFW_KEY_D) == GLFW_PRESS)
+		//if (glfwGetKey(window->getWin(), GLFW_KEY_D) == GLFW_PRESS)
+		if (input->getKeyPress(PrintableKey::D))
 		{
 			transX += 0.01f;
 			sprite->translateBounds(0.01f, 0.0f);
 		}
-		if (glfwGetKey(window->getWin(), GLFW_KEY_A) == GLFW_PRESS)
+		//if (glfwGetKey(window->getWin(), GLFW_KEY_A) == GLFW_PRESS)
+		if (input->getKeyPress(PrintableKey::A))
 		{
 			transX -= 0.01f;
 			sprite->translateBounds(-0.01f, 0.0f);
 		}
-		if (glfwGetKey(window->getWin(), GLFW_KEY_X) == GLFW_PRESS) transZ += 0.001f;
-		if (glfwGetKey(window->getWin(), GLFW_KEY_Z) == GLFW_PRESS) transZ -= 0.001f;
+		//if (glfwGetKey(window->getWin(), GLFW_KEY_X) == GLFW_PRESS) transZ += 0.001f;
+		if (input->getKeyPress(PrintableKey::X)) transZ += 0.001f;
+		//if (glfwGetKey(window->getWin(), GLFW_KEY_Z) == GLFW_PRESS) transZ -= 0.001f;
+		if (input->getKeyPress(PrintableKey::Z)) transZ -= 0.001f;
 
 		//rotate
-		if (glfwGetKey(window->getWin(), GLFW_KEY_U) == GLFW_PRESS) rotateX += 0.01f;
-		if (glfwGetKey(window->getWin(), GLFW_KEY_J) == GLFW_PRESS) rotateX -= 0.01f;
-		if (glfwGetKey(window->getWin(), GLFW_KEY_I) == GLFW_PRESS) rotateY += 0.01f;
-		if (glfwGetKey(window->getWin(), GLFW_KEY_K) == GLFW_PRESS) rotateY -= 0.01f;
-		if (glfwGetKey(window->getWin(), GLFW_KEY_O) == GLFW_PRESS) rotateZ += 0.01f;
-		if (glfwGetKey(window->getWin(), GLFW_KEY_L) == GLFW_PRESS) rotateZ -= 0.01f;
+		//if (glfwGetKey(window->getWin(), GLFW_KEY_U) == GLFW_PRESS) rotateX += 0.01f;
+		if (input->getKeyPress(PrintableKey::U)) rotateX += 0.01f;
+		//if (glfwGetKey(window->getWin(), GLFW_KEY_J) == GLFW_PRESS) rotateX -= 0.01f;
+		if (input->getKeyPress(PrintableKey::J)) rotateX -= 0.01f;
+		//if (glfwGetKey(window->getWin(), GLFW_KEY_I) == GLFW_PRESS) rotateY += 0.01f;
+		if (input->getKeyPress(PrintableKey::I)) rotateY += 0.01f;
+		//if (glfwGetKey(window->getWin(), GLFW_KEY_K) == GLFW_PRESS) rotateY -= 0.01f;
+		if (input->getKeyPress(PrintableKey::K)) rotateY -= 0.01f;
+		//if (glfwGetKey(window->getWin(), GLFW_KEY_O) == GLFW_PRESS) rotateZ += 0.01f;
+		if (input->getKeyPress(PrintableKey::O)) rotateZ += 0.01f;
+		//if (glfwGetKey(window->getWin(), GLFW_KEY_L) == GLFW_PRESS) rotateZ -= 0.01f;
+		if (input->getKeyPress(PrintableKey::L)) rotateZ -= 0.01f;
 
 		//scale
-		if (glfwGetKey(window->getWin(), GLFW_KEY_UP) == GLFW_PRESS) {
+		//if (glfwGetKey(window->getWin(), GLFW_KEY_UP) == GLFW_PRESS)
+		if (input->getKeyPress(FunctionKey::UP))
+		{
 			scaleX += 0.001f;
 			scaleY += 0.001f;
 			scaleZ += 0.001f;
 		}
-		if (glfwGetKey(window->getWin(), GLFW_KEY_DOWN) == GLFW_PRESS) {
+		//if (glfwGetKey(window->getWin(), GLFW_KEY_DOWN) == GLFW_PRESS)
+		if (input->getKeyPress(FunctionKey::DOWN))
+		{
 			scaleX -= 0.001f;
 			scaleY -= 0.001f;
 			scaleZ -= 0.001f;
@@ -90,7 +105,7 @@ void Game::update()
 		//------
 		//Sprite
 		//Sprite load texture
-		sprite->loadTexture("res/assets/AprobamePorfa.jpg", GL_RGB);
+		sprite->loadTexture("res/assets/AprobamePorfa.jpg", RGB);
 
 		sprite->SetPosition(transX, transY, transZ);
 		sprite->SetRotationX(rotateX);
@@ -105,7 +120,7 @@ void Game::update()
 		//------
 		//Sprite2
 		//Sprite load texture
-		sprite2->loadTexture("res/assets/dragon.png", GL_RGBA);
+		sprite2->loadTexture("res/assets/dragon.png", RGBA);
 
 		//Model
 		renderer->setModel(renderer->getShaderProgram(), sprite2->getModel());
@@ -135,7 +150,6 @@ void Game::update()
 
 int Game::terminate()
 {
-	if (tri) delete tri;
 	if (sprite) delete sprite;
 	if (sprite2) delete sprite2;
 

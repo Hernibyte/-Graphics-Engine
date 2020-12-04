@@ -1,10 +1,13 @@
 #ifndef SPRITE_H
 #define SPRITE_H
 
-#include"includes.h"
-#include"Entity2D.h"
-#include "textureImporter.h"
 #include "Animation.h"
+#include "Entity2D.h"
+#include "Includes.h"
+#include "textureImporter.h"
+
+#define RGB 0x1907
+#define RGBA 0x1908
 
 class GENGINE_API Sprite : public Entity2D{
 private:
@@ -12,12 +15,12 @@ private:
 	int width;
 	int height;
 	int nrChannels;
-	textureImporter Texture;
 	int tam;
 	int type;
+	textureImporter texture;
 	Animation* animation;
 public:
-	Sprite(Renderer* _render, int _type);
+	Sprite(Renderer* _render);
 	~Sprite();
 	void loadTexture(const char* filePath, int type);
 	void setBufferData();
