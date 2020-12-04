@@ -134,7 +134,7 @@ void Renderer::updateProj(glm::mat4 projection) {
 }
 
 void Renderer::setView(unsigned int& _shaderProg, glm::mat4 view) {
-	unsigned int viewLoc = glGetUniformLocation(_shaderProg, "view"); //ACA ESTA EL PROBLEMA
+	unsigned int viewLoc = glGetUniformLocation(_shaderProg, "view");
 
 	updateView(view);
 

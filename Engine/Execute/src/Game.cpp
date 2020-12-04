@@ -30,62 +30,48 @@ void Game::update()
 {
 	while (!window->detecWindowShouldClose()) {
 		//input
-		//if (glfwGetKey(window->getWin(), GLFW_KEY_ESCAPE) == GLFW_PRESS) glfwSetWindowShouldClose(window->getWin(), true);
 		if (input->getKeyPress(FunctionKey::ESCAPE)) window->setWindowShouldClose(true);
 
 		//transform
-		//if (glfwGetKey(window->getWin(), GLFW_KEY_W) == GLFW_PRESS)
 		if (input->getKeyPress(PrintableKey::W))
 		{
 			transY += 0.01f;
 			sprite->translateBounds(0.0f, 0.01f);
 		}
-		//if (glfwGetKey(window->getWin(), GLFW_KEY_S) == GLFW_PRESS)
 		if (input->getKeyPress(PrintableKey::S))
 		{
 			transY -= 0.01f;
 			sprite->translateBounds(0.0f, -0.01f);
 		}
-		//if (glfwGetKey(window->getWin(), GLFW_KEY_D) == GLFW_PRESS)
 		if (input->getKeyPress(PrintableKey::D))
 		{
 			transX += 0.01f;
 			sprite->translateBounds(0.01f, 0.0f);
 		}
-		//if (glfwGetKey(window->getWin(), GLFW_KEY_A) == GLFW_PRESS)
 		if (input->getKeyPress(PrintableKey::A))
 		{
 			transX -= 0.01f;
 			sprite->translateBounds(-0.01f, 0.0f);
 		}
-		//if (glfwGetKey(window->getWin(), GLFW_KEY_X) == GLFW_PRESS) transZ += 0.001f;
 		if (input->getKeyPress(PrintableKey::X)) transZ += 0.001f;
-		//if (glfwGetKey(window->getWin(), GLFW_KEY_Z) == GLFW_PRESS) transZ -= 0.001f;
 		if (input->getKeyPress(PrintableKey::Z)) transZ -= 0.001f;
 
 		//rotate
-		//if (glfwGetKey(window->getWin(), GLFW_KEY_U) == GLFW_PRESS) rotateX += 0.01f;
 		if (input->getKeyPress(PrintableKey::U)) rotateX += 0.01f;
-		//if (glfwGetKey(window->getWin(), GLFW_KEY_J) == GLFW_PRESS) rotateX -= 0.01f;
 		if (input->getKeyPress(PrintableKey::J)) rotateX -= 0.01f;
-		//if (glfwGetKey(window->getWin(), GLFW_KEY_I) == GLFW_PRESS) rotateY += 0.01f;
 		if (input->getKeyPress(PrintableKey::I)) rotateY += 0.01f;
-		//if (glfwGetKey(window->getWin(), GLFW_KEY_K) == GLFW_PRESS) rotateY -= 0.01f;
 		if (input->getKeyPress(PrintableKey::K)) rotateY -= 0.01f;
-		//if (glfwGetKey(window->getWin(), GLFW_KEY_O) == GLFW_PRESS) rotateZ += 0.01f;
 		if (input->getKeyPress(PrintableKey::O)) rotateZ += 0.01f;
-		//if (glfwGetKey(window->getWin(), GLFW_KEY_L) == GLFW_PRESS) rotateZ -= 0.01f;
 		if (input->getKeyPress(PrintableKey::L)) rotateZ -= 0.01f;
 
 		//scale
-		//if (glfwGetKey(window->getWin(), GLFW_KEY_UP) == GLFW_PRESS)
 		if (input->getKeyPress(FunctionKey::UP))
 		{
 			scaleX += 0.001f;
 			scaleY += 0.001f;
 			scaleZ += 0.001f;
 		}
-		//if (glfwGetKey(window->getWin(), GLFW_KEY_DOWN) == GLFW_PRESS)
+
 		if (input->getKeyPress(FunctionKey::DOWN))
 		{
 			scaleX -= 0.001f;
@@ -97,7 +83,7 @@ void Game::update()
 		renderer->clearBackground();
 
 		//view
-		renderer->setView(renderer->getShaderProgram(), renderer->getView()); // EN SETVIEW O SETPROJ ESTA EL PROBLEMA
+		renderer->setView(renderer->getShaderProgram(), renderer->getView());
 
 		//proj
 		renderer->setProj(renderer->getShaderProgram(), renderer->getProj());
