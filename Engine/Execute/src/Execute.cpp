@@ -4,9 +4,7 @@ int main()
 {
 	Game* game = new Game();
 
-	game->initialize();
-	game->update();
-	game->terminate();
+	game->run();
 	
 	delete game;
 }

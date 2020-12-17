@@ -6,7 +6,7 @@
 enum PrintableKey
 {
 	SPACE = 32,
-	APOSTROPHE,
+	APOSTROPHE = 39,
 	COMMA = 44,
 	MINUS,
 	PERIOD,
@@ -21,8 +21,8 @@ enum PrintableKey
 	SEVEN,
 	EIGHT,
 	NINE,
-	SEMICOLON,
-	EQUAL,
+	SEMICOLON = 59,
+	EQUAL = 61,
 	A = 65,
 	B,
 	C,
@@ -52,8 +52,8 @@ enum PrintableKey
 	LEFT_BRACKET,
 	BACKSLASH,
 	RIGHT_BRACKET,
-	GRAVE_ACCENT,
-	WORLD_1,
+	GRAVE_ACCENT = 96,
+	WORLD_1 = 161,
 	WORLD_2
 };
 

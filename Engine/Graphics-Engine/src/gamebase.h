@@ -8,7 +8,8 @@
 #include "Window.h"
 #include "Input.h"
 
-class GENGINE_API GameBase {
+class GENGINE_API GameBase
+{
 protected:
 	float transX;
 	float transY;
@@ -27,6 +28,7 @@ protected:
 public:
 	GameBase();
 	~GameBase();
+	void run();
 	virtual int initialize() = 0;
 	virtual void update() = 0;
 	virtual int terminate() = 0;

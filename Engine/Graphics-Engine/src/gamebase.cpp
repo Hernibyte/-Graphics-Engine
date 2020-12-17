@@ -49,3 +49,20 @@ GameBase::~GameBase() {
 	if (renderer) delete renderer;
 	if (time) delete time;
 }
+
+void GameBase::run()
+{
+	initialize();
+
+	while (!window->detecWindowShouldClose())
+	{
+		update();
+
+		time->Tick();
+
+		window->swapBuffers();
+		window->pollEvents();
+	}
+
+	terminate();
+}
