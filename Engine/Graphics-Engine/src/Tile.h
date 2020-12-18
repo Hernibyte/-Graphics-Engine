@@ -10,7 +10,7 @@ class GENGINE_API Tile : public Entity2D
 	Sprite* sprite;
 
 public:
-	Tile(float _x, float _y, float _width, float _height, bool _walkable, Sprite* _sprite, Renderer* renderer);
+	Tile(float _x, float _y, float _width, float _height, Sprite* _sprite, Renderer* renderer);
 	~Tile();
 	void setWalkability(bool _walkable);
 	bool getWalkability();

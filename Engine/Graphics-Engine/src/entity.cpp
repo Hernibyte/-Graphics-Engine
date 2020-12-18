@@ -76,6 +76,16 @@ void Entity::SetRotationZ(float z) {
 	UpdateMatrixModel();
 }
 
+void Entity::Translate(float x, float y, float z)
+{
+	transform.position[0] += x;
+	transform.position[1] += y;
+	transform.position[2] += z;
+
+	internalData.translate = glm::translate(glm::mat4(1.0f), transform.position);
+	UpdateMatrixModel();
+}
+
 glm::mat4 Entity::getModel() {
 	return internalData.model;
 }

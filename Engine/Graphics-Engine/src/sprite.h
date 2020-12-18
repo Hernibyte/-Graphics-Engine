@@ -17,6 +17,10 @@ private:
 	textureImporter texture;
 	Animation* animation;
 public:
+	bool movingUp;
+	bool movingDown;
+	bool movingRight;
+	bool movingLeft;
 	Sprite(Renderer* _renderer);
 	~Sprite();
 	TextureData setTexture(const char* filePath, int _type);

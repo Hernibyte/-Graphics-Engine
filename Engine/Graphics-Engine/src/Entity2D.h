@@ -17,6 +17,8 @@ protected:
 public:
 	Entity2D(Renderer* _renderer);
 	Entity2D(Renderer* _renderer, vec2 _boundsMin, vec2 _boundsMax);
+	void SetPosition(float x, float y, float z);
+	void SetScale(float x, float y, float z);
 	void setBounds(Bounds _bounds);
 	Bounds getBounds();
 	void translateBounds(float transX, float transY);

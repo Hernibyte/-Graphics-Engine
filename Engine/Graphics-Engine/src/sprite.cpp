@@ -64,8 +64,9 @@ Sprite::Sprite(Renderer* _render) : Entity2D(_render, _boundsMin, _boundsMax) {
 	}
 }
 
-Sprite::~Sprite() {
-	//---
+Sprite::~Sprite()
+{
+	if (animation) delete animation;
 }
 
 TextureData Sprite::setTexture(const char* filePath, int _type)
