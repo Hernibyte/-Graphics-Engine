@@ -1,8 +1,7 @@
 #ifndef ENTITY2D_H
 #define ENTITY2D_H
 
-#include"includes.h"
-#include"entity.h"
+#include "Entity.h"
 using namespace glm;
 
 struct Bounds
@@ -13,10 +12,11 @@ struct Bounds
 };
 
 class GENGINE_API Entity2D : public Entity {
+protected:
 	Bounds bounds;
 public:
-	Entity2D(Renderer* _render);
-	Entity2D(Renderer* _render, vec2 _boundsMin, vec2 _boundsMax);
+	Entity2D(Renderer* _renderer);
+	Entity2D(Renderer* _renderer, vec2 _boundsMin, vec2 _boundsMax);
 	void setBounds(Bounds _bounds);
 	Bounds getBounds();
 	void translateBounds(float transX, float transY);

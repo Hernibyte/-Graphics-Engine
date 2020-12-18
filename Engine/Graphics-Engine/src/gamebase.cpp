@@ -59,6 +59,7 @@ void GameBase::run()
 		update();
 
 		time->Tick();
+		std::cout << "FPS: " << 1.0 / time->DeltaTime() << std::endl;
 
 		window->swapBuffers();
 		window->pollEvents();

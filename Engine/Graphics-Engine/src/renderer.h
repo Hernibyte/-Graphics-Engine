@@ -1,7 +1,7 @@
 #ifndef RENDERER_H
 #define RENDERER_H
 
-#include"includes.h"
+#include "Includes.h"
 #include "stb_image.h"
 
 struct matrixVP {
@@ -55,7 +55,7 @@ public:
 	glm::vec3 getCameraUp();
 	void setVertexAttrib();
 	void updateUnifornTexture();
-	void drawTr();
+	void drawTriangles();
 };
 
 #endif // !RENDERER_H

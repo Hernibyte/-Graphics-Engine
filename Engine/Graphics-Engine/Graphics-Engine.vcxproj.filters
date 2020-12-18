@@ -53,6 +53,12 @@
     <Filter Include="src\Input">
       <UniqueIdentifier>{9c445a2a-276d-4360-9d28-317b249bc827}</UniqueIdentifier>
     </Filter>
+    <Filter Include="src\Tile">
+      <UniqueIdentifier>{93512a1f-eae2-4e9e-85e2-5703a83d5aef}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="src\TileMap">
+      <UniqueIdentifier>{d1a36d4b-997b-4a3a-9205-931c07ed5d6a}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="src\stb_image.cpp">
@@ -90,6 +96,12 @@
     </ClCompile>
     <ClCompile Include="src\Input.cpp">
       <Filter>src\Input</Filter>
+    </ClCompile>
+    <ClCompile Include="src\TileMap.cpp">
+      <Filter>src\TileMap</Filter>
+    </ClCompile>
+    <ClCompile Include="src\Tile.cpp">
+      <Filter>src\Tile</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -134,6 +146,12 @@
     </ClInclude>
     <ClInclude Include="src\Input.h">
       <Filter>src\Input</Filter>
+    </ClInclude>
+    <ClInclude Include="src\TileMap.h">
+      <Filter>src\TileMap</Filter>
+    </ClInclude>
+    <ClInclude Include="src\Tile.h">
+      <Filter>src\Tile</Filter>
     </ClInclude>
   </ItemGroup>
   <ItemGroup>

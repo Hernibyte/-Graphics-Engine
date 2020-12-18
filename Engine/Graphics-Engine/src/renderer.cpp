@@ -1,4 +1,4 @@
-#include"renderer.h"
+#include "Renderer.h"
 
 Renderer::Renderer() {
 	unsigned int _posAttrib = 0;
@@ -182,6 +182,6 @@ void Renderer::updateUnifornTexture() {
 	
 }
 
-void Renderer::drawTr(){
+void Renderer::drawTriangles() {
 	glDrawArrays(GL_TRIANGLES, 0, 6);
 }

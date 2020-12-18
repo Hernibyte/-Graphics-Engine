@@ -1,7 +1,7 @@
 #include"entity.h"
 
 Entity::Entity(Renderer *_renderer) {
-	render = _renderer;
+	renderer = _renderer;
 
 	internalData.model = glm::mat4(1.0f);
 	internalData.rotateX = glm::mat4(1.0f);
@@ -18,7 +18,7 @@ Entity::Entity(Renderer *_renderer) {
 }
 
 Renderer* Entity::GetRenderer() {
-	return render;
+	return renderer;
 }
 
 InternalData Entity::GetInternalData() {

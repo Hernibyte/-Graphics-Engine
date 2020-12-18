@@ -1,4 +1,4 @@
-#include"shape.h"
+#include "Shape.h"
 
 float vertexBufferTri[] = {
 	-0.5f,  0.5f, 0.0f,		1.0f, 0.0f, 0.0f,	1.0f, 1.0f,
@@ -34,7 +34,7 @@ unsigned int triIndices[] = {
 */
 
 Shape::Shape(Renderer* _render, int _type) : Entity2D(_render) {
-	render = _render;
+	renderer = _render;
 	type = _type;
 	tam = 48;
 }
@@ -44,5 +44,5 @@ Shape::~Shape() {
 }
 
 void Shape::setBufferData() {
-	render->setBufferData(tam, vertexBufferTri);
+	renderer->setBufferData(tam, vertexBufferTri);
 }

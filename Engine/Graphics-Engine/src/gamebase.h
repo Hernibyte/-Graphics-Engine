@@ -7,6 +7,7 @@
 #include "Sprite.h"
 #include "Window.h"
 #include "Input.h"
+#include "TileMap.h"
 
 class GENGINE_API GameBase
 {

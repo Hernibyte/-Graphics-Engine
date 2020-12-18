@@ -1,8 +1,8 @@
 #ifndef ENTITY_H
 #define ENTITY_H
 
-#include"includes.h"
-#include"renderer.h"
+#include "Includes.h"
+#include "Renderer.h"
 
 struct GENGINE_API Transform {
 	glm::vec3 position;
@@ -24,7 +24,7 @@ const int QUAD_VERTEX_BUFFER_SIZE = 48;
 class GENGINE_API Entity {
 protected:
 	float vertexBuffer[QUAD_VERTEX_BUFFER_SIZE];
-	Renderer* render;
+	Renderer* renderer;
 	InternalData internalData;
 	void UpdateMatrixModel();
 public:

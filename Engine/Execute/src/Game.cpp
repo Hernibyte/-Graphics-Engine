@@ -4,24 +4,62 @@ Game::Game() {}
 
 Game::~Game() {}
 
-Sprite* sprite;
-Sprite* sprite2;
+//Sprite* sprite;
+//Sprite* sprite2;
+TileMap* tileMap;
 
 int Game::initialize()
 {
-	sprite = new Sprite(renderer);
-	sprite2 = new Sprite(renderer);
+	Sprite* grassSprite = new Sprite(renderer);
+	grassSprite->setBufferData();
+	grassSprite->setTexture("res/assets/pasto.png", RGB);
 
-	sprite->setBufferData();
-	sprite2->setBufferData();
+	int tileMapWidth = 20;
+	int tileMapHeight = 10;
+	float tileWidth = 0.1f;
+	float tileHeight = 0.2f;
+	float initialX = -(1.0f - tileWidth / 2.0f);
+	float initialY = -(1.0f - tileHeight / 2.0f);
+	tileMap = new TileMap(tileMapWidth, tileMapHeight, tileWidth, tileHeight, initialX, initialY, grassSprite, renderer);
 
-	//------
-	//Set Sprite animation
-	Animation* animation = new Animation();
-	animation->AddFrame(0.0f, 0.0f, 640.0f, 360.0f, 1280.0f, 720.0f, 4.0f, 4, 2);
-	animation->AddAnimation();
-	animation->SetCurrentAnimation(0);
-	sprite->setAnimation(animation);
+	Sprite* obsidianSprite = new Sprite(renderer);
+	obsidianSprite->setBufferData();
+	obsidianSprite->setTexture("res/assets/bloque obsidiana.jpg", RGB);
+
+	tileMap->getTile(7, 7)->setSprite(obsidianSprite);
+	tileMap->getTile(7, 6)->setSprite(obsidianSprite);
+	tileMap->getTile(8, 7)->setSprite(obsidianSprite);
+	tileMap->getTile(8, 6)->setSprite(obsidianSprite);
+	tileMap->getTile(11, 7)->setSprite(obsidianSprite);
+	tileMap->getTile(11, 6)->setSprite(obsidianSprite);
+	tileMap->getTile(12, 7)->setSprite(obsidianSprite);
+	tileMap->getTile(12, 6)->setSprite(obsidianSprite);
+	tileMap->getTile(9, 5)->setSprite(obsidianSprite);
+	tileMap->getTile(10, 5)->setSprite(obsidianSprite);
+	tileMap->getTile(8, 2)->setSprite(obsidianSprite);
+	tileMap->getTile(8, 4)->setSprite(obsidianSprite);
+	tileMap->getTile(9, 4)->setSprite(obsidianSprite);
+	tileMap->getTile(10, 4)->setSprite(obsidianSprite);
+	tileMap->getTile(11, 4)->setSprite(obsidianSprite);
+	tileMap->getTile(8, 3)->setSprite(obsidianSprite);
+	tileMap->getTile(9, 3)->setSprite(obsidianSprite);
+	tileMap->getTile(10, 3)->setSprite(obsidianSprite);
+	tileMap->getTile(11, 3)->setSprite(obsidianSprite);
+	tileMap->getTile(11, 2)->setSprite(obsidianSprite);
+
+	//sprite = new Sprite(renderer);
+	//sprite2 = new Sprite(renderer);
+	//
+	//sprite->setBufferData();
+	//sprite2->setBufferData();
+	//
+	////------
+	////Set Sprite animation
+	//Animation* animation = new Animation();
+	//animation->AddFrame(0.0f, 0.0f, 640.0f, 360.0f, 1280.0f, 720.0f, 4.0f, 4, 2);
+	//animation->AddAnimation();
+	//animation->SetCurrentAnimation(0);
+	//sprite->setAnimation(animation);
 
 	return 0;
 }
@@ -31,29 +69,29 @@ void Game::update()
 	//input
 	if (input->getKeyPress(FunctionKey::ESCAPE)) window->setWindowShouldClose(true);
 
-	//transform
-	if (input->getKeyPress(PrintableKey::W))
-	{
-		transY += 0.01f;
-		sprite->translateBounds(0.0f, 0.01f);
-	}
-	if (input->getKeyPress(PrintableKey::S))
-	{
-		transY -= 0.01f;
-		sprite->translateBounds(0.0f, -0.01f);
-	}
-	if (input->getKeyPress(PrintableKey::D))
-	{
-		transX += 0.01f;
-		sprite->translateBounds(0.01f, 0.0f);
-	}
-	if (input->getKeyPress(PrintableKey::A))
-	{
-		transX -= 0.01f;
-		sprite->translateBounds(-0.01f, 0.0f);
-	}
-	if (input->getKeyPress(PrintableKey::X)) transZ += 0.001f;
-	if (input->getKeyPress(PrintableKey::Z)) transZ -= 0.001f;
+	////transform
+	//if (input->getKeyPress(PrintableKey::W))
+	//{
+	//	transY += 0.01f;
+	//	sprite->translateBounds(0.0f, 0.01f);
+	//}
+	//if (input->getKeyPress(PrintableKey::S))
+	//{
+	//	transY -= 0.01f;
+	//	sprite->translateBounds(0.0f, -0.01f);
+	//}
+	//if (input->getKeyPress(PrintableKey::D))
+	//{
+	//	transX += 0.01f;
+	//	sprite->translateBounds(0.01f, 0.0f);
+	//}
+	//if (input->getKeyPress(PrintableKey::A))
+	//{
+	//	transX -= 0.01f;
+	//	sprite->translateBounds(-0.01f, 0.0f);
+	//}
+	//if (input->getKeyPress(PrintableKey::X)) transZ += 0.001f;
+	//if (input->getKeyPress(PrintableKey::Z)) transZ -= 0.001f;
 
 	//rotate
 	if (input->getKeyPress(PrintableKey::U)) rotateX += 0.01f;
@@ -88,47 +126,50 @@ void Game::update()
 	renderer->setProj(renderer->getShaderProgram(), renderer->getProj());
 
 	//------
+	//Tile Map
+	tileMap->draw(renderer);
+
+	//------
 	//Sprite
 	//Sprite load texture
-	sprite->loadTexture("res/assets/AprobamePorfa.jpg", RGB);
+	//sprite->loadTexture("res/assets/AprobamePorfa.jpg", RGB);
 
-	sprite->SetPosition(transX, transY, transZ);
-	sprite->SetRotationX(rotateX);
-	sprite->SetRotationY(rotateY);
-	sprite->SetRotationZ(rotateZ);
-	sprite->SetScale(scaleX, scaleY, scaleZ);
-
-	//Model
-	renderer->setModel(renderer->getShaderProgram(), sprite->getModel());
-	renderer->drawTr();
+	//sprite->SetPosition(transX, transY, transZ);
+	//sprite->SetRotationX(rotateX);
+	//sprite->SetRotationY(rotateY);
+	//sprite->SetRotationZ(rotateZ);
+	//sprite->SetScale(scaleX, scaleY, scaleZ);
+	//
+	////Model
+	//renderer->setModel(renderer->getShaderProgram(), sprite->getModel());
+	//renderer->drawTr();
 
 	//------
 	//Sprite2
 	//Sprite load texture
-	sprite2->loadTexture("res/assets/dragon.png", RGBA);
+	//sprite2->loadTexture("res/assets/dragon.png", RGBA);
 
 	//Model
-	renderer->setModel(renderer->getShaderProgram(), sprite2->getModel());
-	renderer->drawTr();
+	//renderer->setModel(renderer->getShaderProgram(), sprite2->getModel());
+	//renderer->drawTr();
 
 	//------
 	//Collision detection
-	if (sprite->getBounds().min.x < sprite2->getBounds().max.x
-		&&
-		sprite->getBounds().max.x > sprite2->getBounds().min.x
-		&&
-		sprite->getBounds().min.y < sprite2->getBounds().max.y
-		&&
-		sprite->getBounds().max.y > sprite2->getBounds().min.y
-		)
-		std::cout << "Colliding: YES" << std::endl;
-	else std::cout << "Colliding: NO" << std::endl;
+	//if (sprite->getBounds().min.x < sprite2->getBounds().max.x
+	//	&&
+	//	sprite->getBounds().max.x > sprite2->getBounds().min.x
+	//	&&
+	//	sprite->getBounds().min.y < sprite2->getBounds().max.y
+	//	&&
+	//	sprite->getBounds().max.y > sprite2->getBounds().min.y)
+	//	std::cout << "Colliding: YES" << std::endl;
+	//else std::cout << "Colliding: NO" << std::endl;
 }
 
 int Game::terminate()
 {
-	if (sprite) delete sprite;
-	if (sprite2) delete sprite2;
+	//if (sprite) delete sprite;
+	//if (sprite2) delete sprite2;
 
 	return 0;
 }

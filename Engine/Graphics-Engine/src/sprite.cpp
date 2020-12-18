@@ -1,4 +1,4 @@
-#include"sprite.h"
+#include "Sprite.h"
 using namespace glm;
 
 float vertexBufferTriSprite[] = {
@@ -23,13 +23,21 @@ vec2 _boundsMin = BL;
 vec2 _boundsMax = TR;
 
 float vertexBufferQuadSprite[QUAD_VERTEX_BUFFER_SIZE] = {
-	TL.x, TL.y, 0.0f,		1.0f, 0.0f, 0.0f,	0.0f, 0.5f,
-	TR.x, TR.y, 0.0f,		0.0f, 1.0f, 0.0f,	0.5f, 0.5f,
-	BR.x, BR.y, 0.0f,		0.0f, 0.0f, 1.0f,	0.5f, 0.0f,
+	//TL.x, TL.y, 0.0f,		1.0f, 0.0f, 0.0f,	0.0f, 0.5f,
+	//TR.x, TR.y, 0.0f,		0.0f, 1.0f, 0.0f,	0.5f, 0.5f,
+	//BR.x, BR.y, 0.0f,		0.0f, 0.0f, 1.0f,	0.5f, 0.0f,
+	//
+	//BR.x, BR.y, 0.0f,		0.0f, 0.0f, 1.0f,	0.5f, 0.0f,
+	//BL.x, BL.y, 0.0f,		1.0f, 1.0f, 1.0f,	0.0f, 0.0f,
+	//TL.x, TL.y, 0.0f,		1.0f, 0.0f, 0.0f,	0.0f, 0.5f
 
-	BR.x, BR.y, 0.0f,		0.0f, 0.0f, 1.0f,	0.5f, 0.0f,
-	BL.x, BL.y, 0.0f,		1.0f, 1.0f, 1.0f,	0.0f, 0.0f,
-	TL.x, TL.y, 0.0f,		1.0f, 0.0f, 0.0f,	0.0f, 0.5f
+	TL.x, TL.y, 0.0f,	  1.0f, 0.0f, 0.0f,	  0.0f, 1.0f,
+	TR.x, TR.y, 0.0f,	  0.0f, 1.0f, 0.0f,	  1.0f, 1.0f,
+	BR.x, BR.y, 0.0f,	  0.0f, 0.0f, 1.0f,	  1.0f, 0.0f,
+						  					  
+	BR.x, BR.y, 0.0f,	  0.0f, 0.0f, 1.0f,	  1.0f, 0.0f,
+	BL.x, BL.y, 0.0f,	  1.0f, 1.0f, 1.0f,	  0.0f, 0.0f,
+	TL.x, TL.y, 0.0f,	  1.0f, 0.0f, 0.0f,	  0.0f, 1.0f
 };
 /*
 float vertexBufferQuad[] = {
@@ -37,17 +45,17 @@ float vertexBufferQuad[] = {
 	 0.5f, -0.5f, 0.0f,   1.0f, 1.0f, 1.0f,   0.0f, 0.0f,
 	-0.5f, -0.5f, 0.0f,   1.0f, 1.0f, 1.0f,   1.0f, 0.0f,
 	-0.5f,  0.5f, 0.0f,   1.0f, 1.0f, 1.0f,   1.0f, 1.0f
-};*/
-
+};
+*/
 unsigned int quadIndicesSprite[] = {  // note that we start from 0!
 	0, 1, 3,   // first triangle
 	1, 2, 3    // second triangle
 };
 
 Sprite::Sprite(Renderer* _render) : Entity2D(_render, _boundsMin, _boundsMax) {
-	render = _render;
+	renderer = _render;
 	type = GL_QUADS;
-	tam = QUAD_VERTEX_BUFFER_SIZE;
+	size = QUAD_VERTEX_BUFFER_SIZE;
 	animation = NULL;
 
 	for (int i = 0; i < QUAD_VERTEX_BUFFER_SIZE; i++)
@@ -60,10 +68,25 @@ Sprite::~Sprite() {
 	//---
 }
 
-void Sprite::loadTexture(const char* filePath, int type) {
-	texture.loadTexture(filePath, data, width, height, nrChannels, type);
+TextureData Sprite::setTexture(const char* filePath, int _type)
+{
+	textureData = texture.importTexture(filePath, _type);
+	type = _type;
 
-	//std::cout << filePath << ": " << &vertexBuffer << std::endl;
+	updateAnimation();
+
+	return textureData;
+}
+
+void Sprite::loadTexture()
+{
+	texture.loadTexture(textureData, type);
+
+	updateAnimation();
+}
+
+void Sprite::updateAnimation()
+{
 	if (animation)
 	{
 		animation->Update();
@@ -87,7 +110,7 @@ void Sprite::loadTexture(const char* filePath, int type) {
 }
 
 void Sprite::setBufferData() {
-	render->setBufferData(tam, vertexBuffer);
+	renderer->setBufferData(size, vertexBuffer);
 }
 
 void Sprite::setAnimation(Animation* _animation)
